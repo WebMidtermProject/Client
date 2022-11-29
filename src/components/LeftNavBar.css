@@ -1,0 +1,25 @@
+.nav__list {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+}
+
+.nav__item {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.nav__title,
+.nav__title:link {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+a,
+a:link {
+  color: #e6fcf5;
+  text-decoration: none;
+}
