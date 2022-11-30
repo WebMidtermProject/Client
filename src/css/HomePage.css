@@ -1,9 +1,0 @@
-.home-page {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.home-page .main {
-  flex: 1;
-}

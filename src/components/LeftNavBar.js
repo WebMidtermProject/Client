@@ -7,10 +7,13 @@ const LeftNavBar = (props) => {
         {!props.user && (
           <ul className="nav__list">
             <li className="nav__item">
-              <a href="/new-group">My Groups</a>
+              <a href="/profile">Profile</a>
             </li>
             <li className="nav__item">
-              <a href="/new-group">Joined Group</a>
+              <a href="/create-group">Create Group</a>
+            </li>
+            <li className="nav__item">
+              <a href="/about">About</a>
             </li>
           </ul>
         )}

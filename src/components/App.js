@@ -1,11 +1,10 @@
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { Container, Form, Button, Row } from "react-bootstrap";
 import { useEffect } from "react";
 
-import SignInPage from "./SignInPage";
-import HomePage from "./HomePage";
+import Header from "./Header";
+import Footer from "./Footer";
+import Content from "./Content";
 
 import "../css/App.css";
 
@@ -23,12 +22,11 @@ const App = () => {
 
   return (
     <div className="app">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<HomePage></HomePage>} />
-        <Route path="/signin" element={<SignInPage />} />
-        {/*         <Route path="/sign-in" element={<HomePage user={user} />} /> */}
-      </Routes>
+      {/*       {user && <Header></Header>} */}
+      <Header></Header>
+      <Content></Content>
+      <Footer></Footer>
+      {/*       {user && <Footer></Footer>} */}
     </div>
   );
 };
