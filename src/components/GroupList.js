@@ -1,6 +1,7 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React from 'react'
 
-import "../css/GroupList.css";
+import '../css/GroupList.css'
 
 const GroupList = (props) => {
   return (
@@ -29,7 +30,7 @@ const GroupList = (props) => {
         <li className="group-list__item">JKL</li>
       </ul>
     </aside>
-  );
-};
+  )
+}
 
-export default GroupList;
+export default GroupList

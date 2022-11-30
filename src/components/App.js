@@ -1,24 +1,25 @@
-import * as React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect } from "react";
+import * as React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { useEffect } from 'react'
 
-import Header from "./Header";
-import Footer from "./Footer";
-import Content from "./Content";
+import Header from './Header'
+import Footer from './Footer'
+import Content from './Content'
 
-import "../css/App.css";
+import '../css/App.css'
 
 const App = () => {
-  const [user, setUser] = React.useState();
+  // eslint-disable-next-line no-unused-vars
+  const [user, setUser] = React.useState()
   /*   console.log(user); */
 
   useEffect(() => {
-    const theUser = localStorage.getItem("user");
+    const theUser = localStorage.getItem('user')
 
-    if (theUser && !theUser.includes("undefined")) {
-      setUser(JSON.parse(theUser));
+    if (theUser && !theUser.includes('undefined')) {
+      setUser(JSON.parse(theUser))
     }
-  }, []);
+  }, [])
 
   return (
     <div className="app">
@@ -28,7 +29,7 @@ const App = () => {
       <Footer></Footer>
       {/*       {user && <Footer></Footer>} */}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

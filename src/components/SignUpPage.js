@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react'
 
 const SignUpPage = () => {
-  return <></>;
-};
+  return <></>
+}
 
-export default SignUpPage;
+export default SignUpPage

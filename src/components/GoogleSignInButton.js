@@ -1,50 +1,50 @@
 // Login.jsx
-import React, { useEffect } from "react";
-import useFetch from "../hooks/useFetch";
+import React, { useEffect } from 'react'
+import useFetch from '../hooks/useFetch'
 
 // https://developers.google.com/identity/gsi/web/reference/js-reference
 
 const GoogleSignInButton = () => {
   const { handleGoogle, loading, error } = useFetch(
-    "http://localhost:3000/google/sign-in"
-  );
+    'http://localhost:3000/google/sign-in'
+  )
 
   useEffect(() => {
     /* global google */
     if (window.google) {
       google.accounts.id.initialize({
         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-        callback: handleGoogle,
-      });
+        callback: handleGoogle
+      })
 
-      google.accounts.id.renderButton(document.getElementById("loginDiv"), {
+      google.accounts.id.renderButton(document.getElementById('loginDiv'), {
         // type: "standard",
-        theme: "filled_black",
+        theme: 'filled_black',
         // size: "small",
-        text: "signin_with",
-        shape: "pill",
-      });
+        text: 'signin_with',
+        shape: 'pill'
+      })
 
       // google.accounts.id.prompt()
     }
-  }, [handleGoogle]);
+  }, [handleGoogle])
 
   return (
     <>
       <main
         style={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center'
         }}
       >
         <div id="loginDiv"></div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         {loading ? <div>Loading....</div> : <div id="loginDiv"></div>}
       </main>
     </>
-  );
-};
+  )
+}
 
-export default GoogleSignInButton;
+export default GoogleSignInButton

@@ -1,9 +1,10 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React from 'react'
 
-import GroupList from "./GroupList";
-import { Container } from "react-bootstrap";
+import GroupList from './GroupList'
+import { Container } from 'react-bootstrap'
 
-import "../css/Profile.css";
+import '../css/Profile.css'
 
 const Profile = (props) => {
   return (
@@ -16,14 +17,14 @@ const Profile = (props) => {
               src={
                 props.user && props.user.img
                   ? props.user.img
-                  : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
+                  : 'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg'
               }
               alt="default img profile"
             />
             <span className="profile__fullname">
               {props.user && props.user.first_name && props.user.last_name
                 ? props.user.first_name + props.user.last_name
-                : "User Fullname"}
+                : 'User Fullname'}
             </span>
           </div>
           <div className="profile__info--detail">
@@ -32,7 +33,7 @@ const Profile = (props) => {
               <p>
                 {props.user && props.user.description
                   ? props.user.description
-                  : "Nothing to show"}
+                  : 'Nothing to show'}
               </p>
             </div>
           </div>
@@ -51,7 +52,7 @@ const Profile = (props) => {
         </section>
       </div>
     </Container>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

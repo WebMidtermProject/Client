@@ -1,14 +1,15 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import React from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
-import Profile from "./Profile";
-import SignInPage from "./SignInPage";
-import CreateGroupForm from "./CreateGroupForm";
+import Profile from './Profile'
+import SignInPage from './SignInPage'
+import CreateGroupForm from './CreateGroupForm'
 
-import "../css/Content.css";
+import '../css/Content.css'
 
 const Content = (props) => {
-  const user = props.user;
+  const user = props.user
   return (
     <article className="content">
       <Routes>
@@ -32,10 +33,10 @@ const Content = (props) => {
         />
       </Routes>
     </article>
-  );
-};
+  )
+}
 
-export default Content;
+export default Content
 
 /* <Routes>
 <Route
