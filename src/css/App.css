@@ -1,9 +1,12 @@
 :root {
   --header-color: #099268;
   --aside-color: #e9ecef;
-  --center-color: white;
+  --center-color: #fff;
   --footer-color: #343a40;
   --footer-text-color: #adb5bd;
+
+  --plain-bg-color: #151935;
+  --border-color: #f1f3f5;
 }
 
 * {

@@ -1,0 +1,81 @@
+.profile {
+  background-image: linear-gradient(to right bottom, #6a5af9, #f62682);
+  padding: 12px;
+  border-radius: 18px;
+  color: white;
+}
+
+.profile--sub {
+  width: 100%;
+  height: 100%;
+  background-color: #191a28;
+  border-radius: inherit;
+
+  padding: 40px;
+  background-color: #fff;
+  padding: 40px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  /*   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(https://images.unsplash.com/photo-1507383013594-af3890d5d6f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTJ8Mzg2MTExfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60); */
+  background-color: var(--plain-bg-color);
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.profile__info--general {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.profile__img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.profile__fullname {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.profile__info--detail {
+}
+
+.profile__info__description {
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+
+  padding: 10px;
+  width: 400px;
+  height: 160px;
+}
+
+.profile__group div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+}
+
+.profile h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.profile__group__label {
+  display: block;
+  margin: 0 auto;
+}

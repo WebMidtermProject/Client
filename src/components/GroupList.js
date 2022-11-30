@@ -1,8 +1,10 @@
 import React from "react";
 
+import "../css/GroupList.css";
+
 const GroupList = (props) => {
   return (
-    <aside className="main-content__left my-group">
+    <aside className="main-content__aside my-group">
       <ul className="group-list">
         <h5 className="group-list__title">{props.title}</h5>
         <li className="group-list__item">ABC</li>
