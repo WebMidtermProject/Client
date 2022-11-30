@@ -7,6 +7,8 @@
 
   --plain-bg-color: #151935;
   --border-color: #f1f3f5;
+  --dark-bg-color: #191a28;
+  --light-dark-bg-color: #22243b;
 }
 
 * {

@@ -9,7 +9,7 @@
 .profile--sub {
   width: 100%;
   height: 100%;
-  background-color: #191a28;
+  background-color: var(--dark-bg-color);
   border-radius: inherit;
 
   padding: 40px;
@@ -62,7 +62,7 @@
   height: 160px;
 }
 
-.profile__group div {
+.profile__group .profile__group--two-col {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -79,4 +79,25 @@
 .profile__group__label {
   display: block;
   margin: 0 auto;
+}
+
+.profile .group-list {
+  width: 400px;
+  height: 240px;
+}
+
+.profile .group-list__item .group-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile .group-list__item .group-num-member {
+  font-size: 11px;
+  color: green;
+}
+
+.profile .group-list__item .group-author {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--footer-text-color);
 }

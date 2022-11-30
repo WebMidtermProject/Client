@@ -40,7 +40,7 @@ const Profile = (props) => {
 
         <section className="profile__group">
           <h3 className="profile__group__label">Groups</h3>
-          <div>
+          <div className="profile__group--two-col">
             <div className="profile_group__left">
               <GroupList title="My Groups"></GroupList>
             </div>

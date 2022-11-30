@@ -1,6 +1,6 @@
 header {
   height: max-content;
-  padding: 12px 40px;
+  padding: 20px 30px;
   background-color: var(--header-color);
   display: flex;
   align-items: center;
