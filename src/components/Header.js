@@ -4,14 +4,19 @@ import { useState } from "react";
 import LeftNavBar from "./LeftNavBar";
 import RightNavBar from "./RightNavBar";
 
-import "./Header.css";
+import "../css/Header.css";
 
 const Header = (props) => {
   const [user, setUser] = useState(props.user);
   return (
     <header>
-      <LeftNavBar></LeftNavBar>
-      <RightNavBar></RightNavBar>
+      <h1 className="header__title">
+        <a href="/">KAHOOT DUPE</a>
+      </h1>
+      <div className="header__navbar">
+        <LeftNavBar></LeftNavBar>
+        <RightNavBar></RightNavBar>
+      </div>
     </header>
   );
 };

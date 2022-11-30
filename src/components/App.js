@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import SignInPage from "./SignInPage";
 import HomePage from "./HomePage";
 
-import "./App.css";
+import "../css/App.css";
 
 const App = () => {
   const [user, setUser] = React.useState();
@@ -25,7 +25,7 @@ const App = () => {
     <div className="app">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<HomePage></HomePage>} />
         <Route path="/signin" element={<SignInPage />} />
         {/*         <Route path="/sign-in" element={<HomePage user={user} />} /> */}
       </Routes>

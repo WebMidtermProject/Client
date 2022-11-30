@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./RightNavBar.css";
-
 const RightNavBar = (props) => {
   return (
     <nav className="nav nav--right">

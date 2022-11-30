@@ -1,0 +1,17 @@
+:root {
+  --header-color: #099268;
+  --aside-color: #e9ecef;
+  --center-color: white;
+  --footer-color: #343a40;
+  --footer-text-color: #adb5bd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
+}
