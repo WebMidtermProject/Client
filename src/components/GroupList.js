@@ -9,8 +9,8 @@ const GroupList = (props) => {
   console.log(props.data)
   console.log(typeof props.data)
 
-  const handleItemClick = (e) => {
-    navigate("/group/1/invite");
+  const handleItemClick = (id) => {
+    navigate(`/group/${id}`);
   };
 
   return (

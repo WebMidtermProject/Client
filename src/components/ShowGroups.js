@@ -7,8 +7,8 @@ import GroupList from "./GroupList";
 import "../css/ShowGroups.css";
 
 const ShowGroups = (props) => {
-  const myGroupsAPI = 'http://localhost:3001/group/get-my-groups';
-  const joinedGroupsAPI = 'http://localhost:3001/group/get-joined-groups';
+  const myGroupsAPI = 'http://localhost:3000/group/get-my-groups';
+  const joinedGroupsAPI = 'http://localhost:3000/group/get-joined-groups';
 
   const [groups, setGroups] = useState([]);
 

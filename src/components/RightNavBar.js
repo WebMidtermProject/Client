@@ -2,7 +2,7 @@
 import React from "react";
 
 const RightNavBar = (props) => {
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("user"));
   const handleLogoutClick = (event) => {
     event.preventDefault();
     localStorage.removeItem("user");

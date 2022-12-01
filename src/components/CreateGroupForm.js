@@ -14,14 +14,19 @@ const CreateGroupForm = (props) => {
   const handleSubmit = (e) => {
     setLoading(true);
     e.preventDefault();
-
+    var userJson = JSON.parse(localStorage.getItem('user'))
+    var accessToken = userJson.accessToken
+    console.log(JSON.stringify({
+      title: e.target[0].value,
+    }))
     fetch(createGroupUrl, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
+        'api-token': `${accessToken}`, 
       },
       body: JSON.stringify({
-        group_name: e.target[0].value,
+        title: e.target[0].value,
       }),
     })
       .then(async (res) => {
@@ -54,7 +59,7 @@ const CreateGroupForm = (props) => {
           <input
             className="input-group-name"
             type="text"
-            name="group-name"
+            name="title"
             placeholder="Your group name"
             onChange={handleChangeNameGroup}
             value={nameInput}
