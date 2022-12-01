@@ -10,9 +10,9 @@ import {
 } from 'react-bootstrap'
 // import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 import GoogleSignInButton from './GoogleSignInButton'
-import GoogleSignUpButton from './GoogleSignUpButton'
 
 const SignInPage = () => {
   const initState = {
@@ -20,11 +20,11 @@ const SignInPage = () => {
     password: ''
   }
 
-  const baseUrl = 'http://localhost:3001'
+  const baseUrl = 'http://localhost:3000'
   // eslint-disable-next-line no-unused-vars
   const [initialValues, setInitialValues] = React.useState(initState)
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const onSubmit = (values) => {
     console.log('Values:::', values)
@@ -37,14 +37,14 @@ const SignInPage = () => {
     }).then(async (res) => {
       if (res.status === 200) {
         const user = await res.json()
-        console.log(user)
+/*         console.log(user) */
         localStorage.setItem('user', JSON.stringify(user))
         window.location.reload()
       }
     })
-         navigate("/home-page", {
+/*          navigate("/home-page", {
       state: { email: values.email },
-    }); 
+    });  */
   }
 
   const onError = (error) => {
@@ -109,7 +109,6 @@ const SignInPage = () => {
             Submit
           </Button>
           <GoogleSignInButton></GoogleSignInButton>
-          <GoogleSignUpButton></GoogleSignUpButton>
         </Row>
       </Form>
     </Container>

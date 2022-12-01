@@ -107,13 +107,13 @@ const SignUpPage = () => {
           <Form.Label>Confirm password</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Enter your password..."
+            placeholder="Confirm your password..."
             {...register("confirmPassword", { required: "Required" })}
             lder="Confirm your password..."
           />
-          {errors.password && (
+          {errors.confirmPassword && (
             <Form.Text className="text-danger">
-              {errors.password.message}
+              {errors.confirmPassword.message}
             </Form.Text>
           )}
         </Form.Group>
@@ -121,7 +121,6 @@ const SignUpPage = () => {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-          <GoogleSignInButton></GoogleSignInButton>
           <GoogleSignUpButton></GoogleSignUpButton>
         </Row>
       </Form>

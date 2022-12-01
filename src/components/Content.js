@@ -14,38 +14,30 @@ import "../css/Content.css";
 
 const Content = (props) => {
   const user = props.user;
+  console.log(user);
   return (
     <article className="content">
-      <Routes>
+{/*       <Routes>
         <Route path="/" element={<h2>Profile</h2>} />
-        <Route path="/profile" element={<h2>Profile</h2>} />
+        <Route path="/profile" elsement={<h2>Profile</h2>} />
         <Route path="/my-groups" element={<h2>My groups</h2>} />
         <Route path="/joined-groups" element={<h2>Joined groups</h2>} />
         <Route path="/create-group" element={<h2>Create Group</h2>} />
         <Route path="/group/:id" element={<h2>Group Detail</h2>} />
         <Route path="/about" element={<h2>About</h2>} />
-      </Routes>
+      </Routes> */}
 
-      <Routes>
-        <Route
-          path="/sign-in"
-          element={user ? <Navigate to="/" /> : <SignInPage />}
-        />
-        <Route
-          path="/sign-up"
-          element={user ? <Navigate to="/" /> : <SignUpPage />}
-        />
-        <Route path="/" element={<Profile></Profile>} />
-
-        <Route path="/profile" element={<Profile></Profile>} />
-        <Route path="/my-groups" element={<ShowGroups></ShowGroups>} />
-        <Route path="/joined-groups" element={<ShowGroups></ShowGroups>} />
-        <Route
-          path="/create-group"
-          element={<CreateGroupForm></CreateGroupForm>}
-        />
-        <Route path="/group/:id" element={<GroupDetail></GroupDetail>} />
-        <Route path="/about" element={<About></About>} />
+        <Routes>
+          <Route path="/sign-in" element={user ? <Navigate to="/profile " /> : <SignInPage></SignInPage>} />
+{/*           <Route
+            path="/"
+            element={user ? <Profile></Profile> : <Navigate to="/sign-in" />}
+          />
+          <Route
+            path="/profile"
+            element={user ? <Profile></Profile> : <Navigate to="/sign-in" />}
+          /> */}
+          <Route path="/create-group" element={user ? <CreateGroupForm></CreateGroupForm> : <Navigate to="/ccccc" />} />
       </Routes>
     </article>
   );
@@ -54,15 +46,6 @@ const Content = (props) => {
 export default Content;
 
 /* <Routes>
-<Route
-  path="/"
-  element={user ? <Profile></Profile> : <Navigate to="/signin" />}
-/>
-
-<Route
-  path="/profile"
-  element={user ? <Profile></Profile> : <Navigate to="/signin" />}
-/>
 
 <Route
   path="/"

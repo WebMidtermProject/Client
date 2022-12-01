@@ -25,7 +25,7 @@ const App = () => {
     <div className="app">
       {/*       {user && <Header></Header>} */}
       <Header></Header>
-      <Content></Content>
+      <Content user = {user}></Content>
       <Footer></Footer>
       {/*       {user && <Footer></Footer>} */}
     </div>

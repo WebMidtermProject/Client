@@ -24,7 +24,7 @@ const GroupDetail = (props) => {
     <Container className="group__detail">
       <h4 className="group__detail__name">Group {id}</h4>
       <MemberList></MemberList>
-      <button class="btn-invite-link" onClick={handleInviteByLink}>Invite by link</button>
+      <button className="btn-invite-link" onClick={handleInviteByLink}>Invite by link</button>
     </Container>
   );
 };
