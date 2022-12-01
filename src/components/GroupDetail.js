@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
@@ -12,13 +12,48 @@ const GroupDetail = (props) => {
   //...
   ///
 
+  const groupDetailLink = 'http://localhost:3000/group/';
+
+  const [groupDetail, setGroupDetail] = useState(null);
+  const [memberList, setMemberList] = useState([]);
+
   useEffect(() => {
+
+    try {
+      let api = groupDetailLink + id;
+      const getData = async ()=>{
+        var userJson = JSON.parse(localStorage.getItem('user'))
+        var accessToken = userJson.accessToken
+        const res = await fetch(api, 
+          {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json',
+                'api-token': `${accessToken}`, 
+            } 
+          });
+        const data = await res.json();
+        console.log(data.data)
+        if (data.data !== undefined && data.data !== null){
+          setGroupDetail(data.data)
+          setMemberList(data.data.memberList)
+        }
+
+        return data
+      }
+      getData()
+     
+    } catch (error) {
+      console.log("AA"+ error.message);
+    }
+
+
     const inviteUser = async () => {
       const user = JSON.parse(localStorage.getItem("user"));
       const accessToken = user.accessToken;
 
       try {
-        await fetch("http://localhost:3000/invite", {
+        await fetch("http://localhost:3000/group/invite", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -31,11 +66,13 @@ const GroupDetail = (props) => {
       }
     };
     if (props.invite) inviteUser();
+
+    
   }, []);
 
   const handleInviteByLink = (e) => {
     e.preventDefault();
-    const inviteLink = "localhost:30001/group/" + id + "/invite";
+    const inviteLink = "localhost:3001/group/" + id + "/invite";
     // Copy the text inside the text field
     navigator.clipboard.writeText(inviteLink);
     alert("Copied invite link to clipboard");
@@ -43,8 +80,8 @@ const GroupDetail = (props) => {
 
   return (
     <Container className="group__detail">
-      <h4 className="group__detail__name">Group {id}</h4>
-      <MemberList></MemberList>
+      <h4 className="group__detail__name">Group title: {groupDetail?.title}</h4>
+      <MemberList data={memberList}></MemberList>
       <button className="btn-invite-link" onClick={handleInviteByLink}>
         Invite by link
       </button>

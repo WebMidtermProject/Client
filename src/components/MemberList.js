@@ -6,6 +6,13 @@ import { useNavigate } from "react-router-dom";
 
 import "../css/MemberList.css";
 
+const AttendeeRole = {
+  KICK_OUT: 0,
+  OWNER: 1,
+  CO_OWNER: 2,
+  MEMBER: 3,
+}
+
 const MemberList = (props) => {
   const memberApi = "";
   const [members, setMembers] = useState(null);
@@ -26,40 +33,26 @@ const MemberList = (props) => {
   return (
     <Container className="section-member-list">
       <div className="div-member-list">
-        <ul className="member-list">
-          <li className="member-list__item">
-            <span className="member-name">Member 1</span>
-            <select className="member-role">
-              <option value="role1">Role 1</option>
-              <option value="role2">Role 2</option>
-              <option value="role3">Role 3</option>
-            </select>
-          </li>
-          <li className="member-list__item">
-            <span className="member-name">Member 2</span>
-            <select className="member-role">
-              <option value="role1">Role 1</option>
-              <option value="role2">Role 2</option>
-              <option value="role3">Role 3</option>
-            </select>
-          </li>
-          <li className="member-list__item">
-            <span className="member-name">Member 3</span>
-            <select className="member-role">
-              <option value="role1">Role 1</option>
-              <option value="role2">Role 2</option>
-              <option value="role3">Role 3</option>
-            </select>
-          </li>
-          <li className="member-list__item">
-            <span className="member-name">Member 4</span>
-            <select className="member-role">
-              <option value="role1">Role 1</option>
-              <option value="role2">Role 2</option>
-              <option value="role3">Role 3</option>
-            </select>
-          </li>
-        </ul>
+        {typeof props.data == "object" ?
+        props.data.map((item)=>{
+          return (
+            <ul className="member-list">
+              <li className="member-list__item">
+                <span className="member-name">{item?.first_name} {item?.last_name}</span>
+                <select className="member-role">
+                  <option value="2" selected={item.role === 2 ? "selected" : ""}>CO_OWNER</option>
+                  <option value="3" selected={item.role === 3 ? "selected" : ""}>MEMBER</option>
+                  <option value="1" selected={item.role === 1 ? "selected" : ""}>OWNER</option>
+                  <option value="0" selected={item.role === 0 ? "selected" : ""}>KICK_OUT</option>
+
+                </select>
+              </li>
+            </ul>
+          )
+          
+        }
+        ): <></>
+        }
       </div>
     </Container>
   );
