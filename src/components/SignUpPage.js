@@ -1,14 +1,7 @@
 /* eslint-disable no-unused-vars */
 import * as React from "react";
 
-import {
-  Container,
-  Form,
-  Button,
-  Row,
-  // InputGroup,
-  // FormControl
-} from "react-bootstrap";
+import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +10,8 @@ import GoogleSignUpButton from "./GoogleSignUpButton";
 
 const SignUpPage = () => {
   const initState = {
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
   };
@@ -34,17 +29,23 @@ const SignUpPage = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: values.email, password: values.password }),
-    }).then(async (res) => {
-      if (res.status === 200) {
-        const user = await res.json();
-        localStorage.setItem("user", JSON.stringify(user));
-        window.location.reload();
-      }
-    });
-    /*     navigate("/home-page", {
-      state: { email: values.email },
-    }); */
+      body: JSON.stringify({
+        firstname: values.firstname,
+        lastname: values.lastname,
+        email: values.email,
+        password: values.password,
+      }),
+    })
+      .then(async (res) => {
+        if (res.status === 200) {
+          const user = await res.json();
+          localStorage.setItem("user", JSON.stringify(user));
+          window.location.reload();
+        }
+      })
+      .catch((error) => {
+        console.log("Error:::", error.message);
+      });
   };
 
   const onError = (error) => {
@@ -75,6 +76,41 @@ const SignUpPage = () => {
   return (
     <Container className="my-4" id="login-container">
       <Form onSubmit={handleSubmit(onSubmit, onError)}>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3" controlId="formBasicFirstName">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="firstname"
+                placeholder="Enter your firstname..."
+                {...register("firstname", { required: "Required" })}
+                lder="Enter your firstname..."
+              />
+              {errors.firstname && (
+                <Form.Text className="text-danger">
+                  {errors.firstname.message}
+                </Form.Text>
+              )}
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group className="mb-3" controlId="formBasicLastName">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="lastname"
+                placeholder="Enter your lastname..."
+                {...register("lastname", { required: "Required" })}
+                lder="Enter your lastname..."
+              />
+              {errors.lastname && (
+                <Form.Text className="text-danger">
+                  {errors.lastname.message}
+                </Form.Text>
+              )}
+            </Form.Group>
+          </Col>
+        </Row>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -118,6 +154,7 @@ const SignUpPage = () => {
             </Form.Text>
           )}
         </Form.Group>
+
         <Row className="justify-content-md-center" xs="auto">
           <Button variant="primary" type="submit">
             Submit

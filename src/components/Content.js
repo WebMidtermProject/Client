@@ -39,6 +39,11 @@ const Content = (props) => {
         />
 
         <Route
+          path="/sign-up"
+          element={user ? <Navigate to="/" /> : <SignUpPage></SignUpPage>}
+        />
+
+        <Route
           path="/profile"
           element={
             user ? (

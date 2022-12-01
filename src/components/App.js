@@ -22,9 +22,9 @@ const App = () => {
 
   return (
     <div className="app">
-      {user && <Header></Header>}
+      <Header></Header>
       <Content user={user}></Content>
-      {user && <Footer></Footer>}
+      <Footer></Footer>
     </div>
   );
 };

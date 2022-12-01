@@ -56,3 +56,36 @@ a:link:hover {
   font-size: 17px;
   font-weight: 600;
 }
+
+.header__navbar .nav__item .nav__item__user__img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.header__navbar .nav__item .nav__item__user__name {
+  color: white;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.nav--right .nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.nav--right .btn-logout {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+.nav--right a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
