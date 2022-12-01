@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +11,7 @@ const GroupList = (props) => {
   const handleItemClick = (e) => {
     navigate("/group/1");
   };
+
   return (
     <Container className="section-group-list">
       <div className="div-group-list">

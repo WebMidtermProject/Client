@@ -1,15 +1,27 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 import "../css/MemberList.css";
 
 const MemberList = (props) => {
-  /*   const navigate = useNavigate();
+  const memberApi = "";
+  const [members, setMembers] = useState(null);
 
-  const handleItemClick = (e) => {
-    navigate("/profile");
-  }; */
+  useEffect(() => {
+    /*     const getMembers = async () => {
+      try {
+        const res = await fetch(memberApi);
+        const data = await res.json();
+        setMembers(data);
+        getMembers();
+      } catch (err) {
+        console.log(err.message);
+      }
+    }; */
+  }, []);
+
   return (
     <Container className="section-member-list">
       <div className="div-member-list">

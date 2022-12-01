@@ -1,11 +1,17 @@
 import React from "react";
-
-import GroupList from "./GroupList";
+import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
+import GroupList from "./GroupList";
 import "../css/Profile.css";
 
 const Profile = (props) => {
+  const navigate = useNavigate();
+
+  const handleGroupClick = (suffix) => {
+    navigate(suffix);
+  };
+
   return (
     <Container className="profile">
       <div className="profile--sub">
@@ -41,10 +47,16 @@ const Profile = (props) => {
         <section className="profile__group">
           <h3 className="profile__group__label">Groups</h3>
           <div className="profile__group--two-col">
-            <div className="profile_group__left">
+            <div
+              className="profile_group__left"
+              onClick={() => handleGroupClick("/my-groups")}
+            >
               <GroupList title="My Groups"></GroupList>
             </div>
-            <div className="profile_group__right">
+            <div
+              className="profile_group__right"
+              onClick={() => handleGroupClick("/joined-groups")}
+            >
               <GroupList title="Joined Groups"></GroupList>
             </div>
           </div>

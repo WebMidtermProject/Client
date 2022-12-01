@@ -3,17 +3,16 @@ import { useState } from "react";
 
 import { Container } from "react-bootstrap";
 
+import "../css/CreateGroupForm.css";
+
 const CreateGroupForm = (props) => {
   const createGroupUrl = "http://localhost:3000/create-group";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
   const [nameInput, setNameInput] = useState("");
 
   const handleSubmit = (e) => {
     setLoading(true);
-    const group_id = window.crypto.randomUUID();
-    console.log(group_id, e.target[0].value);
     e.preventDefault();
 
     fetch(createGroupUrl, {
@@ -23,12 +22,11 @@ const CreateGroupForm = (props) => {
       },
       body: JSON.stringify({
         group_name: e.target[0].value,
-        group_id: group_id,
       }),
     })
-      .then((res) => {
+      .then(async (res) => {
         setLoading(false);
-        return res.json();
+        return await res.json();
       })
       .then((data) => {
         /*         if (data?.user) {
@@ -53,6 +51,7 @@ const CreateGroupForm = (props) => {
       {!loading && (
         <form onSubmit={handleSubmit} className="form form-create-group">
           <input
+            className="input-group-name"
             type="text"
             name="group-name"
             placeholder="Your group name"

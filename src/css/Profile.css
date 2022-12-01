@@ -56,7 +56,7 @@
 .profile__info__description {
   border: 2px solid var(--border-color);
   border-radius: 14px;
-  box-shadow: 0.15px 0.15px 15px whitesmoke;
+  box-shadow: 0.05px 0.05px 1px whitesmoke;
   padding: 10px;
   width: 400px;
   height: 160px;
@@ -84,6 +84,13 @@
 .profile .group-list {
   width: 400px;
   height: 240px;
+
+  transition-delay: 0.1s;
+  transform: all 0.5s ease;
+}
+
+.profile .group-list:hover {
+  box-shadow: 0.05px 0.05px 25px whitesmoke;
 }
 
 .profile .group-list__item .group-name {
@@ -100,4 +107,8 @@
   font-size: 14px;
   font-style: italic;
   color: var(--footer-text-color);
+}
+
+.profile__group--two-col div {
+  cursor: pointer;
 }

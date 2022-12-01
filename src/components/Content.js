@@ -1,11 +1,14 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import Profile from "./Profile";
 import SignInPage from "./SignInPage";
+import SignUpPage from "./SignUpPage";
+
+import Profile from "./Profile";
 import ShowGroups from "./ShowGroups";
 import CreateGroupForm from "./CreateGroupForm";
 import GroupDetail from "./GroupDetail";
+import About from "./About";
 
 import "../css/Content.css";
 
@@ -20,9 +23,18 @@ const Content = (props) => {
         <Route path="/joined-groups" element={<h2>Joined groups</h2>} />
         <Route path="/create-group" element={<h2>Create Group</h2>} />
         <Route path="/group/:id" element={<h2>Group Detail</h2>} />
+        <Route path="/about" element={<h2>About</h2>} />
       </Routes>
 
       <Routes>
+        <Route
+          path="/sign-in"
+          element={user ? <Navigate to="/" /> : <SignInPage />}
+        />
+        <Route
+          path="/sign-up"
+          element={user ? <Navigate to="/" /> : <SignUpPage />}
+        />
         <Route path="/" element={<Profile></Profile>} />
 
         <Route path="/profile" element={<Profile></Profile>} />
@@ -33,10 +45,7 @@ const Content = (props) => {
           element={<CreateGroupForm></CreateGroupForm>}
         />
         <Route path="/group/:id" element={<GroupDetail></GroupDetail>} />
-        <Route
-          path="/sign-in"
-          element={user ? <Navigate to="/" /> : <SignInPage />}
-        />
+        <Route path="/about" element={<About></About>} />
       </Routes>
     </article>
   );
