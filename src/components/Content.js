@@ -75,7 +75,7 @@ const Content = (props) => {
             user ? (
               <>
                 <h2>Joined groups</h2>
-                <ShowGroups></ShowGroups>
+                <ShowGroups type="joined groups"></ShowGroups>
               </>
             ) : (
               <Navigate to="/sign-in" />
