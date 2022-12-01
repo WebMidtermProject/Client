@@ -1,13 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react'
 
-import LeftNavBar from "./LeftNavBar";
-import RightNavBar from "./RightNavBar";
+import LeftNavBar from './LeftNavBar'
+import RightNavBar from './RightNavBar'
 
-import "../css/Header.css";
+import '../css/Header.css'
 
 const Header = (props) => {
-  const [user, setUser] = useState(props.user);
+  // const [user, setUser] = useState(props.user)
   return (
     <header>
       <h1 className="header__title">
@@ -18,7 +17,7 @@ const Header = (props) => {
         <RightNavBar></RightNavBar>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

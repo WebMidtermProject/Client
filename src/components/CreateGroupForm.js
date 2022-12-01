@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from 'react'
 
-import { Container } from "react-bootstrap";
+import { Container } from 'react-bootstrap'
 
 import "../css/CreateGroupForm.css";
 
@@ -16,9 +15,9 @@ const CreateGroupForm = (props) => {
     e.preventDefault();
 
     fetch(createGroupUrl, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         group_name: e.target[0].value,
@@ -35,14 +34,14 @@ const CreateGroupForm = (props) => {
         } */
       })
       .catch((error) => {
-        console.log(error.message);
-        setError(error?.message);
-      });
-  };
+        console.log(error.message)
+        setError(error?.message)
+      })
+  }
 
   const handleChangeNameGroup = (e) => {
-    setNameInput(e.target.value);
-  };
+    setNameInput(e.target.value)
+  }
 
   return (
     <Container className="section-create-group">
@@ -65,7 +64,7 @@ const CreateGroupForm = (props) => {
         <span className="loading loading-create-group">Loading...</span>
       )}
     </Container>
-  );
-};
+  )
+}
 
-export default CreateGroupForm;
+export default CreateGroupForm

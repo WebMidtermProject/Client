@@ -1,75 +1,76 @@
-import * as React from "react";
+import * as React from 'react'
 
 import {
   Container,
   Form,
   Button,
-  Row,
+  Row
   // InputGroup,
   // FormControl
-} from "react-bootstrap";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import GoogleSignInButton from "./GoogleSignInButton";
-import GoogleSignUpButton from "./GoogleSignUpButton";
+} from 'react-bootstrap'
+// import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+// import { useNavigate } from 'react-router-dom'
+import GoogleSignInButton from './GoogleSignInButton'
+import GoogleSignUpButton from './GoogleSignUpButton'
 
 const SignInPage = () => {
   const initState = {
-    email: "",
-    password: "",
-  };
+    email: '',
+    password: ''
+  }
 
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = 'http://localhost:3001'
   // eslint-disable-next-line no-unused-vars
-  const [initialValues, setInitialValues] = React.useState(initState);
+  const [initialValues, setInitialValues] = React.useState(initState)
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate()
 
   const onSubmit = (values) => {
-    console.log("Values:::", values);
-    fetch(baseUrl + "/auth/login", {
-      method: "POST",
+    console.log('Values:::', values)
+    fetch(baseUrl + '/auth/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email: values.email, password: values.password }),
+      body: JSON.stringify({ email: values.email, password: values.password })
     }).then(async (res) => {
       if (res.status === 200) {
-        const user = await res.json();
-        localStorage.setItem("user", JSON.stringify(user));
-        window.location.reload();
+        const user = await res.json()
+        console.log(user)
+        localStorage.setItem('user', JSON.stringify(user))
+        window.location.reload()
       }
-    });
-    /*     navigate("/home-page", {
+    })
+         navigate("/home-page", {
       state: { email: values.email },
-    }); */
-  };
+    }); 
+  }
 
   const onError = (error) => {
-    console.log("ERROR:::", error);
-  };
+    console.log('ERROR:::', error)
+  }
 
   const {
     register,
     handleSubmit,
-    getValues,
+    // getValues,
     watch,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    mode: "onTouched",
-    reValidateMode: "onSubmit",
+    mode: 'onTouched',
+    reValidateMode: 'onSubmit',
     // reValidateMode: "onChange",
-    defaultValues: initialValues,
-  });
+    defaultValues: initialValues
+  })
 
   React.useEffect(() => {
     const subscription = watch((value, { name, type }) => {
-      console.log(">>", value, name);
-    });
+      console.log('>>', value, name)
+    })
 
-    return () => subscription.unsubscribe();
-  }, [watch]);
+    return () => subscription.unsubscribe()
+  }, [watch])
 
   return (
     <Container className="my-4" id="login-container">
@@ -79,7 +80,7 @@ const SignInPage = () => {
           <Form.Control
             type="email"
             placeholder="Enter your email address..."
-            {...register("email", { required: "Required" })}
+            {...register('email', { required: 'Required' })}
           />
           {errors.email && (
             <Form.Text className="text-danger">
@@ -93,9 +94,9 @@ const SignInPage = () => {
           <Form.Control
             type="password"
             placeholder="Enter your password..."
-            {...register("password", { required: "Required" })}
+            {...register('password', { required: 'Required' })}
             lder="Enter your password..."
-            {...register("password", { required: "Required" })}
+            {...register('password', { required: 'Required' })}
           />
           {errors.password && (
             <Form.Text className="text-danger">
@@ -112,7 +113,7 @@ const SignInPage = () => {
         </Row>
       </Form>
     </Container>
-  );
-};
+  )
+}
 
-export default SignInPage;
+export default SignInPage

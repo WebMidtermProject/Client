@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React from 'react'
 
 const LeftNavBar = (props) => {
   return (
@@ -25,7 +26,7 @@ const LeftNavBar = (props) => {
         )}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default LeftNavBar;
+export default LeftNavBar
