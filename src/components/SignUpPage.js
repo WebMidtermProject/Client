@@ -27,7 +27,7 @@ const SignUpPage = () => {
 
   const onSubmit = (values) => {
     console.log("Values:::", values);
-    fetch(baseUrl + "/auth/login", {
+    fetch(baseUrl + "/auth/sign-up", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const SignUpPage = () => {
         if (res.status === 200) {
           const user = await res.json();
           localStorage.setItem("user", JSON.stringify(user));
-          window.location.reload();
+          window.location = "/sign-in";
         }
       })
       .catch((error) => {

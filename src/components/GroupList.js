@@ -2,13 +2,13 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-import '../css/GroupList.css'
+import "../css/GroupList.css";
 
 const GroupList = (props) => {
   const navigate = useNavigate();
 
   const handleItemClick = (e) => {
-    navigate("/group/1");
+    navigate("/group/1/invite");
   };
 
   return (
@@ -29,4 +29,4 @@ const GroupList = (props) => {
   );
 };
 
-export default GroupList
+export default GroupList;

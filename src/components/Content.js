@@ -96,6 +96,33 @@ const Content = (props) => {
           }
         />
         <Route
+          path="/group/:id"
+          element={
+            user ? (
+              <>
+                <h2>Group</h2>
+                <GroupDetail></GroupDetail>
+              </>
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        />
+        <Route
+          path="/group/:id/invite"
+          element={
+            user ? (
+              <>
+                <h2>Group</h2>
+                <GroupDetail invite={true}></GroupDetail>
+              </>
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        />
+
+        <Route
           path="/about"
           element={
             <>
