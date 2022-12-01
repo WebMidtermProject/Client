@@ -19,7 +19,7 @@ const SignUpPage = () => {
     password: "",
   };
 
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = "http://localhost:3001";
   // eslint-disable-next-line no-unused-vars
   const [initialValues, setInitialValues] = React.useState(initState);
   const [error, setError] = React.useState();

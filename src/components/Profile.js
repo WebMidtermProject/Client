@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
@@ -7,20 +7,23 @@ import "../css/Profile.css";
 
 const Profile = (props) => {
   const navigate = useNavigate();
+  const getProfileUrl = "http://localhost:3001/user/profile";
 
   const [inputName, setInputName] = useState("");
   const [edit, setEdit] = useState(false);
-
+  const [userInfo, setUserInfo] = useState(null);
   const handleGroupClick = (suffix) => {
     navigate(suffix);
   };
-
   const handleChangeName = async () => {
     try {
-      fetch("http://localhost:3000/user/edit", {
+      var userJson = JSON.parse(localStorage.getItem("user"));
+      var accessToken = userJson.accessToken;
+      fetch("http://localhost:3001/user/edit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "api-token": `${accessToken}`,
         },
         body: JSON.stringify({ name: inputName }),
       });
@@ -34,6 +37,32 @@ const Profile = (props) => {
     setInputName(e.target.value);
   };
 
+  useEffect(() => {
+    try {
+      const getData = async () => {
+        var userJson = JSON.parse(localStorage.getItem("user"));
+        var accessToken = userJson.accessToken;
+
+        const res = await fetch(getProfileUrl, {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+            "api-token": `${accessToken}`,
+          },
+        });
+        const data = await res.json();
+        if (data.data.length !== 0) {
+          setUserInfo(data.data);
+        }
+
+        return data;
+      };
+      getData();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, []);
+
   return (
     <Container className="profile">
       <div className="profile--sub">
@@ -42,8 +71,8 @@ const Profile = (props) => {
             <img
               className="profile__img"
               src={
-                props.user && props.user.img
-                  ? props.user.img
+                userInfo?.picture
+                  ? userInfo?.picture
                   : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
               }
               alt="default img profile"
@@ -51,8 +80,8 @@ const Profile = (props) => {
             {!edit && (
               <>
                 <span className="profile__fullname">
-                  {props.user && props.user.first_name && props.user.last_name
-                    ? props.user.first_name + props.user.last_name
+                  {userInfo?.first_name
+                    ? userInfo?.first_name + userInfo?.last_name
                     : "User Fullname"}
                 </span>
                 <input

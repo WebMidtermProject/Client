@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import "../css/CreateGroupForm.css";
 
 const CreateGroupForm = (props) => {
-  const createGroupUrl = "http://localhost:3000/group/create";
+  const createGroupUrl = "http://localhost:3001/group/create";
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

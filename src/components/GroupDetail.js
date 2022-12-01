@@ -12,7 +12,7 @@ const GroupDetail = (props) => {
   //...
   ///
 
-  const groupDetailLink = "http://localhost:3000/group/";
+  const groupDetailLink = "http://localhost:3001/group/";
 
   const [groupDetail, setGroupDetail] = useState(null);
   const [memberList, setMemberList] = useState([]);
@@ -25,11 +25,11 @@ const GroupDetail = (props) => {
         const accessToken = user.accessToken;
 
         try {
-          await fetch("http://localhost:3000/group/invite", {
+          await fetch("http://localhost:3001/group/invite", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "api-token": accessToken,
+              "api-token": `${accessToken}`,
             },
             body: JSON.stringify({ userID: user.id, groupID: id }),
           });
@@ -69,7 +69,7 @@ const GroupDetail = (props) => {
 
   const handleInviteByLink = (e) => {
     e.preventDefault();
-    const inviteLink = "localhost:3001/group/" + id + "/invite";
+    const inviteLink = "localhost:3000/group/" + id + "/invite";
     // Copy the text inside the text field
     navigator.clipboard.writeText(inviteLink);
     alert("Copied invite link to clipboard");
