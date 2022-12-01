@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
@@ -8,8 +8,30 @@ import "../css/Profile.css";
 const Profile = (props) => {
   const navigate = useNavigate();
 
+  const [inputName, setInputName] = useState("");
+  const [edit, setEdit] = useState(false);
+
   const handleGroupClick = (suffix) => {
     navigate(suffix);
+  };
+
+  const handleChangeName = async () => {
+    try {
+      fetch("http://localhost:3000/user/edit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: inputName }),
+      });
+      setEdit(false);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const handleOnChange = async (e) => {
+    setInputName(e.target.value);
   };
 
   return (
@@ -22,15 +44,41 @@ const Profile = (props) => {
               src={
                 props.user && props.user.img
                   ? props.user.img
-                  : 'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg'
+                  : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
               }
               alt="default img profile"
             />
-            <span className="profile__fullname">
-              {props.user && props.user.first_name && props.user.last_name
-                ? props.user.first_name + props.user.last_name
-                : 'User Fullname'}
-            </span>
+            {!edit && (
+              <>
+                <span className="profile__fullname">
+                  {props.user && props.user.first_name && props.user.last_name
+                    ? props.user.first_name + props.user.last_name
+                    : "User Fullname"}
+                </span>
+                <input
+                  type="button"
+                  name="change-name"
+                  value="change"
+                  onClick={() => setEdit(true)}
+                />
+              </>
+            )}
+
+            {edit && (
+              <>
+                <input
+                  type="text"
+                  onChange={handleOnChange}
+                  value={inputName}
+                ></input>
+                <input
+                  type="button"
+                  name="change-name"
+                  value="OK"
+                  onClick={handleChangeName}
+                />
+              </>
+            )}
           </div>
           <div className="profile__info--detail">
             <h3>Description</h3>
@@ -38,7 +86,7 @@ const Profile = (props) => {
               <p>
                 {props.user && props.user.description
                   ? props.user.description
-                  : 'Nothing to show'}
+                  : "Nothing to show"}
               </p>
             </div>
           </div>
@@ -63,7 +111,7 @@ const Profile = (props) => {
         </section>
       </div>
     </Container>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
