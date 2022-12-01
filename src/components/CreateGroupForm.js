@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { Container } from 'react-bootstrap'
+import { Container } from "react-bootstrap";
 
 import "../css/CreateGroupForm.css";
 
 const CreateGroupForm = (props) => {
-  const createGroupUrl = "http://localhost:3000/create-group";
+  const createGroupUrl = "http://localhost:3000/group/create";
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [nameInput, setNameInput] = useState("");
@@ -15,9 +16,9 @@ const CreateGroupForm = (props) => {
     e.preventDefault();
 
     fetch(createGroupUrl, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       body: JSON.stringify({
         group_name: e.target[0].value,
@@ -25,28 +26,29 @@ const CreateGroupForm = (props) => {
     })
       .then(async (res) => {
         setLoading(false);
-        return await res.json();
+        return res;
       })
       .then((data) => {
-        /*         if (data?.user) {
-          localStorage.setItem('user', JSON.stringify(data?.user));
-          window.location.reload();
-        } */
+        if (data.statusCode === 200) {
+          setSuccess(true);
+        }
       })
       .catch((error) => {
-        console.log(error.message)
-        setError(error?.message)
-      })
-  }
+        console.log(error.message);
+        setError(error?.message);
+      });
+  };
 
   const handleChangeNameGroup = (e) => {
-    setNameInput(e.target.value)
-  }
+    setNameInput(e.target.value);
+  };
 
   return (
     <Container className="section-create-group">
       {error && <span className="error error-create-group">{error}</span>}
-
+      {success && (
+        <span className="success success-create-group">Created!!!</span>
+      )}
       {!loading && (
         <form onSubmit={handleSubmit} className="form form-create-group">
           <input
@@ -64,7 +66,7 @@ const CreateGroupForm = (props) => {
         <span className="loading loading-create-group">Loading...</span>
       )}
     </Container>
-  )
-}
+  );
+};
 
-export default CreateGroupForm
+export default CreateGroupForm;

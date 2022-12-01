@@ -5,6 +5,9 @@ import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import GoogleSignInButton from "./GoogleSignInButton";
 import GoogleSignUpButton from "./GoogleSignUpButton";
 
@@ -24,7 +27,7 @@ const SignUpPage = () => {
 
   const onSubmit = (values) => {
     console.log("Values:::", values);
-    fetch(baseUrl + "/auth/login", {
+    fetch(baseUrl + "/auth/sign-up", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +43,7 @@ const SignUpPage = () => {
         if (res.status === 200) {
           const user = await res.json();
           localStorage.setItem("user", JSON.stringify(user));
-          window.location.reload();
+          window.location = "/sign-in";
         }
       })
       .catch((error) => {
@@ -52,6 +55,18 @@ const SignUpPage = () => {
     console.log("ERROR:::", error);
   };
 
+  const schema = yup
+    .object()
+    .shape({
+      email: yup.string().email("Invalid email format").required("Required"),
+      firstname: yup.string().required(),
+      lastname: yup.string().required(),
+      password: yup
+        .string()
+        .min(6, "Password is too short - should be 6 chars minimum."),
+    })
+    .required();
+
   const {
     register,
     handleSubmit,
@@ -61,6 +76,7 @@ const SignUpPage = () => {
   } = useForm({
     mode: "onTouched",
     reValidateMode: "onSubmit",
+    resolver: yupResolver(schema),
     // reValidateMode: "onChange",
     defaultValues: initialValues,
   });
@@ -83,7 +99,7 @@ const SignUpPage = () => {
               <Form.Control
                 type="firstname"
                 placeholder="Enter your firstname..."
-                {...register("firstname", { required: "Required" })}
+                {...register("firstname")}
                 lder="Enter your firstname..."
               />
               {errors.firstname && (
@@ -99,7 +115,7 @@ const SignUpPage = () => {
               <Form.Control
                 type="lastname"
                 placeholder="Enter your lastname..."
-                {...register("lastname", { required: "Required" })}
+                {...register("lastname")}
                 lder="Enter your lastname..."
               />
               {errors.lastname && (
@@ -116,7 +132,7 @@ const SignUpPage = () => {
           <Form.Control
             type="email"
             placeholder="Enter your email address..."
-            {...register("email", { required: "Required" })}
+            {...register("email")}
           />
           {errors.email && (
             <Form.Text className="text-danger">
@@ -130,27 +146,12 @@ const SignUpPage = () => {
           <Form.Control
             type="password"
             placeholder="Enter your password..."
-            {...register("password", { required: "Required" })}
+            {...register("password")}
             lder="Enter your password..."
           />
           {errors.password && (
             <Form.Text className="text-danger">
               {errors.password.message}
-            </Form.Text>
-          )}
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formConfirmPassword">
-          <Form.Label>Confirm password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Confirm your password..."
-            {...register("confirmPassword", { required: "Required" })}
-            lder="Confirm your password..."
-          />
-          {errors.confirmPassword && (
-            <Form.Text className="text-danger">
-              {errors.confirmPassword.message}
             </Form.Text>
           )}
         </Form.Group>
