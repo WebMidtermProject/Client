@@ -22,11 +22,11 @@ const SignUpPage = () => {
   const baseUrl = "http://localhost:3000";
   // eslint-disable-next-line no-unused-vars
   const [initialValues, setInitialValues] = React.useState(initState);
-
-  const navigate = useNavigate();
+  const [error, setError] = React.useState();
 
   const onSubmit = (values) => {
     console.log("Values:::", values);
+    setError();
     fetch(baseUrl + "/auth/sign-up", {
       method: "POST",
       headers: {
@@ -43,10 +43,12 @@ const SignUpPage = () => {
         if (res.status === 200) {
           const user = await res.json();
           localStorage.setItem("user", JSON.stringify(user));
+          alert("Signin success!!!");
           window.location = "/sign-in";
         }
       })
       .catch((error) => {
+        setError(error.message);
         console.log("Error:::", error.message);
       });
   };
@@ -162,6 +164,7 @@ const SignUpPage = () => {
           </Button>
           <GoogleSignUpButton></GoogleSignUpButton>
         </Row>
+        {error && <Row style={{ color: "red" }}>{error}</Row>}
       </Form>
     </Container>
   );

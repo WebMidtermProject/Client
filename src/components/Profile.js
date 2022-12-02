@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
-import GroupList from "./GroupList";
+import ShowGroups from "./ShowGroups";
 import "../css/Profile.css";
 
 const Profile = (props) => {
@@ -99,13 +99,17 @@ const Profile = (props) => {
               className="profile_group__left"
               onClick={() => handleGroupClick("/my-groups")}
             >
-              <GroupList title="My Groups"></GroupList>
+              <ShowGroups profile={true} title={"My groups"}></ShowGroups>
             </div>
             <div
               className="profile_group__right"
               onClick={() => handleGroupClick("/joined-groups")}
             >
-              <GroupList title="Joined Groups"></GroupList>
+              <ShowGroups
+                type="joined groups"
+                title={"Joined groups"}
+                profile={true}
+              ></ShowGroups>
             </div>
           </div>
         </section>

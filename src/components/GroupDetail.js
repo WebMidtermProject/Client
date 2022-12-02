@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 import MemberList from "./MemberList";
@@ -12,62 +12,59 @@ const GroupDetail = (props) => {
   //...
   ///
 
-  const groupDetailLink = 'http://localhost:3000/group/';
+  const groupDetailLink = "http://localhost:3000/group/";
 
   const [groupDetail, setGroupDetail] = useState(null);
   const [memberList, setMemberList] = useState([]);
+  const [error, setError] = useState();
 
   useEffect(() => {
-
     try {
-      let api = groupDetailLink + id;
-      const getData = async ()=>{
-        var userJson = JSON.parse(localStorage.getItem('user'))
-        var accessToken = userJson.accessToken
-        const res = await fetch(api, 
-          {
-            method: 'GET',
+      const inviteUser = async () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const accessToken = user.accessToken;
+
+        try {
+          await fetch("http://localhost:3000/group/invite", {
+            method: "POST",
             headers: {
-                'Content-type': 'application/json',
-                'api-token': `${accessToken}`, 
-            } 
+              "Content-Type": "application/json",
+              "api-token": accessToken,
+            },
+            body: JSON.stringify({ userID: user.id, groupID: id }),
           });
+          alert(`Joined to group #${id}`);
+        } catch (error) {
+          console.log(error.message);
+        }
+      };
+      if (props.invite) inviteUser();
+
+      let api = groupDetailLink + id;
+      const getData = async () => {
+        var userJson = JSON.parse(localStorage.getItem("user"));
+        var accessToken = userJson.accessToken;
+        const res = await fetch(api, {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+            "api-token": `${accessToken}`,
+          },
+        });
         const data = await res.json();
-        console.log(data.data)
-        if (data.data !== undefined && data.data !== null){
-          setGroupDetail(data.data)
-          setMemberList(data.data.memberList)
+        console.log(data.data);
+        if (data.data !== undefined && data.data !== null) {
+          setGroupDetail(data.data);
+          setMemberList(data.data.memberList);
         }
 
-        return data
-      }
-      getData()
-     
+        return data;
+      };
+      getData();
     } catch (error) {
-      console.log("AA"+ error.message);
+      setError(error.message);
+      /*       console.log("AA" + error.message); */
     }
-
-
-    const inviteUser = async () => {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const accessToken = user.accessToken;
-
-      try {
-        await fetch("http://localhost:3000/group/invite", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "api-token": accessToken,
-          },
-          body: JSON.stringify({ userID: user.id, groupID: id }),
-        });
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    if (props.invite) inviteUser();
-
-    
   }, []);
 
   const handleInviteByLink = (e) => {
@@ -85,6 +82,7 @@ const GroupDetail = (props) => {
       <button className="btn-invite-link" onClick={handleInviteByLink}>
         Invite by link
       </button>
+      <Row>{error && <span>{error}</span>}</Row>
     </Container>
   );
 };

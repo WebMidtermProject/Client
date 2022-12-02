@@ -7,47 +7,46 @@ import GroupList from "./GroupList";
 import "../css/ShowGroups.css";
 
 const ShowGroups = (props) => {
-  const myGroupsAPI = 'http://localhost:3000/group/get-my-groups';
-  const joinedGroupsAPI = 'http://localhost:3000/group/get-joined-groups';
+  const myGroupsAPI = "http://localhost:3000/group/get-my-groups";
+  const joinedGroupsAPI = "http://localhost:3000/group/get-joined-groups";
 
   const [groups, setGroups] = useState([]);
 
-  useEffect( () => {
-    console.log("LOADING ALL GROUP");
-
+  useEffect(() => {
     try {
       let api = myGroupsAPI;
       if (props.type === "joined groups") api = joinedGroupsAPI;
-      const getData = async ()=>{
-        var userJson = JSON.parse(localStorage.getItem('user'))
-        var accessToken = userJson.accessToken
+      const getData = async () => {
+        var userJson = JSON.parse(localStorage.getItem("user"));
+        var accessToken = userJson.accessToken;
 
-        const res = await fetch(api, 
-          {
-            method: 'GET',
-            headers: {
-                'Content-type': 'application/json',
-                'api-token': `${accessToken}`, 
-            } 
-          });
+        const res = await fetch(api, {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+            "api-token": `${accessToken}`,
+          },
+        });
         const data = await res.json();
         if (data.data.length !== 0) {
-          setGroups(data.data)
+          setGroups(data.data);
         }
 
-        return data
-      }
-      getData()
-     
+        return data;
+      };
+      getData();
     } catch (error) {
       console.log(error.message);
     }
   }, []);
 
   return (
-    
     <section className="section-show-groups">
-      <GroupList data={groups}></GroupList>
+      <GroupList
+        data={groups}
+        title={props.title}
+        w={props.profile ? "415px" : "900px"}
+      ></GroupList>
     </section>
   );
 };

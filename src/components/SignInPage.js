@@ -36,25 +36,31 @@ const SignInPage = () => {
   const baseUrl = "http://localhost:3001";
   // eslint-disable-next-line no-unused-vars
   const [initialValues, setInitialValues] = React.useState(initState);
+  const [error, setError] = React.useState();
 
   const navigate = useNavigate();
 
   const onSubmit = (values) => {
     console.log("Values:::", values);
+    setError();
     fetch(baseUrl + "/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email: values.email, password: values.password }),
-    }).then(async (res) => {
-      if (res.status === 200) {
-        const user = await res.json();
-        /*         console.log(user) */
-        localStorage.setItem("user", JSON.stringify(user));
-        window.location.reload();
-      }
-    });
+    })
+      .then(async (res) => {
+        if (res.status === 200) {
+          const user = await res.json();
+          /*         console.log(user) */
+          localStorage.setItem("user", JSON.stringify(user));
+          window.location.reload();
+        }
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
     /*          navigate("/home-page", {
       state: { email: values.email },
     });  */
@@ -123,6 +129,7 @@ const SignInPage = () => {
           </Button>
           <GoogleSignInButton></GoogleSignInButton>
         </Row>
+        {error && <Row style={{ color: "red" }}>{error}</Row>}
       </Form>
     </Container>
   );

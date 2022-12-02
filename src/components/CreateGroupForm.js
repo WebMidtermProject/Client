@@ -12,18 +12,21 @@ const CreateGroupForm = (props) => {
   const [nameInput, setNameInput] = useState("");
 
   const handleSubmit = (e) => {
+    setSuccess(false);
     setLoading(true);
     e.preventDefault();
-    var userJson = JSON.parse(localStorage.getItem('user'))
-    var accessToken = userJson.accessToken
-    console.log(JSON.stringify({
-      title: e.target[0].value,
-    }))
+    const userJson = JSON.parse(localStorage.getItem("user"));
+    const accessToken = userJson.accessToken;
+    console.log(
+      JSON.stringify({
+        title: e.target[0].value,
+      })
+    );
     fetch(createGroupUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'api-token': `${accessToken}`, 
+        "api-token": `${accessToken}`,
       },
       body: JSON.stringify({
         title: e.target[0].value,
@@ -39,7 +42,6 @@ const CreateGroupForm = (props) => {
         }
       })
       .catch((error) => {
-        console.log(error.message);
         setError(error?.message);
       });
   };
