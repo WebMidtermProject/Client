@@ -2,12 +2,12 @@ import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
-import ShowGroups from "./ShowGroups";
-import "../css/Profile.css";
+import ShowGroups from "../group/ShowGroups";
+import "./css/Profile.css";
 
 const Profile = (props) => {
   const navigate = useNavigate();
-  const getProfileUrl = "http://localhost:3001/user/profile";
+  const getProfileUrl = process.env.REACT_APP_SERVER_HOST + "/user/profile";
 
   const [inputName, setInputName] = useState("");
   const [edit, setEdit] = useState(false);
@@ -19,7 +19,7 @@ const Profile = (props) => {
     try {
       var userJson = JSON.parse(localStorage.getItem("user"));
       var accessToken = userJson.accessToken;
-      fetch("http://localhost:3001/user/edit", {
+      fetch(process.env.REACT_APP_SERVER_HOST + "/user/edit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const Profile = (props) => {
     } catch (error) {
       console.log(error.message);
     }
-  }, []);
+  }, [getProfileUrl]);
 
   return (
     <Container className="profile">

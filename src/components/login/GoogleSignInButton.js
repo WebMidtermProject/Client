@@ -1,12 +1,12 @@
 // Login.jsx
 import React, { useEffect } from "react";
-import useFetch from "../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 
 // https://developers.google.com/identity/gsi/web/reference/js-reference
 
 const GoogleSignInButton = () => {
   const { handleGoogle, loading, error } = useFetch(
-    "http://localhost:3001/google/sign-in"
+    process.env.REACT_APP_SERVER_HOST + "/google/sign-in"
   );
 
   useEffect(() => {

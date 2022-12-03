@@ -2,9 +2,9 @@ import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from "react";
 
-import Header from "./Header";
-import Footer from "./Footer";
-import Content from "./Content";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
+import Content from "./router";
 
 import "../css/App.css";
 

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import MemberList from "./MemberList";
 
-import "../css/GroupDetail.css";
+import "./css/GroupDetail.css";
 
 const GroupDetail = (props) => {
   const { id } = useParams();
@@ -12,7 +12,7 @@ const GroupDetail = (props) => {
   //...
   ///
 
-  const groupDetailLink = "http://localhost:3001/group/";
+  const groupDetailLink = process.env.REACT_APP_SERVER_HOST + "/group/";
 
   const [groupDetail, setGroupDetail] = useState(null);
   const [memberList, setMemberList] = useState([]);
@@ -25,7 +25,7 @@ const GroupDetail = (props) => {
         const accessToken = user.accessToken;
 
         try {
-          await fetch("http://localhost:3001/group/invite", {
+          await fetch(process.env.REACT_APP_SERVER_HOST + "/group/invite", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const GroupDetail = (props) => {
       setError(error.message);
       /*       console.log("AA" + error.message); */
     }
-  }, []);
+  }, [groupDetailLink, id, props.invite]);
 
   const handleInviteByLink = (e) => {
     e.preventDefault();

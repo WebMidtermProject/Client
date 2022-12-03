@@ -1,13 +1,13 @@
 // Signup.jsx
 import React, { useEffect } from 'react'
 // import { Link } from 'react-router-dom'
-import useFetch from '../hooks/useFetch'
+import useFetch from '../../hooks/useFetch'
 
 // https://developers.google.com/identity/gsi/web/reference/js-reference
 
 const GoogleSignUpButton = () => {
   const { handleGoogle, loading, error } = useFetch(
-    'http://localhost:3001/google/sign-up'
+    process.env.REACT_APP_SERVER_HOST + "/google/sign-up"
   )
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-import "../css/About.css";
+import "./css/About.css";
 const About = () => {
   return (
     <Container className="about-us">

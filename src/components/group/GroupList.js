@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-import "../css/GroupList.css";
+import "./css/GroupList.css";
 
 const GroupList = (props) => {
   const navigate = useNavigate();

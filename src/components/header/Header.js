@@ -3,7 +3,7 @@ import React from 'react'
 import LeftNavBar from './LeftNavBar'
 import RightNavBar from './RightNavBar'
 
-import '../css/Header.css'
+import './css/Header.css'
 
 const Header = (props) => {
   // const [user, setUser] = useState(props.user)

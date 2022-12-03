@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import GoogleSignInButton from "./GoogleSignInButton";
-import GoogleSignUpButton from "./GoogleSignUpButton";
+import GoogleSignInButton from "../login/GoogleSignInButton";
+import GoogleSignUpButton from "../login/GoogleSignUpButton";
 
 const SignUpPage = () => {
   const initState = {
@@ -19,7 +19,7 @@ const SignUpPage = () => {
     password: "",
   };
 
-  const baseUrl = "http://localhost:3001";
+  const baseUrl = process.env.REACT_APP_SERVER_HOST;
   // eslint-disable-next-line no-unused-vars
   const [initialValues, setInitialValues] = React.useState(initState);
   const [error, setError] = React.useState();

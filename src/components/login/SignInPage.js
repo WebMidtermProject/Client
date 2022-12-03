@@ -33,7 +33,7 @@ const SignInPage = () => {
     })
     .required();
 
-  const baseUrl = "http://localhost:3001";
+  const baseUrl = process.env.REACT_APP_SERVER_HOST;
   // eslint-disable-next-line no-unused-vars
   const [initialValues, setInitialValues] = React.useState(initState);
   const [error, setError] = React.useState();

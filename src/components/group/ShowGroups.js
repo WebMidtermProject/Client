@@ -2,13 +2,12 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useState, useEffect } from "react";
-
 import GroupList from "./GroupList";
-import "../css/ShowGroups.css";
+import "./css/ShowGroups.css";
 
 const ShowGroups = (props) => {
-  const myGroupsAPI = "http://localhost:3001/group/get-my-groups";
-  const joinedGroupsAPI = "http://localhost:3001/group/get-joined-groups";
+  const myGroupsAPI = process.env.REACT_APP_SERVER_HOST + "/group/get-my-groups";
+  const joinedGroupsAPI = process.env.REACT_APP_SERVER_HOST + "/group/get-joined-groups";
 
   const [groups, setGroups] = useState([]);
 
