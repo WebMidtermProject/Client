@@ -1,4 +1,5 @@
 .display-slide {
   flex: 6;
-  /*   margin-top: 90px; */
+  font-size: 32px;
+  position: relative;
 }

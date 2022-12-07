@@ -7,7 +7,7 @@ import "./css/DisplaySlide.css";
 const DisplaySlide = (props) => {
   return (
     <div className="display-slide">
-      <Slide width="1100px" height="550px"></Slide>
+      <Slide size="large"></Slide>
     </div>
   );
 };

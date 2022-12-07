@@ -19,19 +19,19 @@ const SlideCustomization = () => {
           className="slide-customization__input options"
           type="text"
           placeholder="Please type here..."
-          value="Great"
+          /*           value="Great" */
         />
         <input
           className="slide-customization__input options"
           type="text"
           placeholder="Please type here..."
-          value="Bad"
+          /*           value="Bad" */
         />
         <input
           className="slide-customization__input options"
           type="text"
           placeholder="Please type here..."
-          value="Happy"
+          /*           value="Happy" */
         />
         <button> Add option</button>
       </section>

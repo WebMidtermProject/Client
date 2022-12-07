@@ -4,20 +4,40 @@ import { Container } from "react-bootstrap";
 import "./css/Slide.css";
 
 const Slide = (props) => {
-  const width = props.width;
-  const height = props.height;
-  const color = props.color;
+  const size = props.size;
+  let cls = props.className;
 
-  /*   */
+  if (cls === "last-slide") cls = "slide " + cls;
+  else cls = "slide";
+
+  let width = "1100px";
+  let height = "550px";
+
+  if (size === "mini") {
+    width = "200px";
+    height = "100px";
+  }
+
+  let property = "";
+  if (size === "large") property = "center";
+
   return (
-    <Container className="slide" style={{ width: width, height: height }}>
-      <h4 className="slide__title">Slide title</h4>
-      <ul className="slide__list">
-        <li className="slide__item">Answer A</li>
-        <li className="slide__item">Answer B</li>
-        <li className="slide__item">Answer C</li>
-        <li className="slide__item">Answer D</li>
-      </ul>
+    <Container
+      className={cls + " " + property}
+      style={{ width: width, height: height }}
+    >
+      {cls !== "slide last-slide" && (
+        <>
+          <h4 className="slide__title">Slide title</h4>
+          <ul className="slide__list">
+            <li className="slide__answer">Answer A</li>
+            <li className="slide__answer">Answer B</li>
+            <li className="slide__answer">Answer C</li>
+            <li className="slide__answer">Answer D</li>
+          </ul>
+        </>
+      )}
+      {cls === "slide last-slide" && <span className="slide__title">+</span>}
     </Container>
   );
 };

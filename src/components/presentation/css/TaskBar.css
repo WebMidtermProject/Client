@@ -1,6 +1,6 @@
 .task-bar {
   height: 50px;
-  background-color: var(--secondary-fresh-blue-color);
+  background-color: var(--secondary-purple-color);
 
   display: flex;
   align-items: center;
