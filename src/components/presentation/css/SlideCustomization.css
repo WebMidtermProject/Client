@@ -1,0 +1,25 @@
+.slide-customization {
+  height: 100%;
+  flex: 3;
+  background-color: var(--header-color);
+
+  padding: 30px;
+}
+
+.slide-customization__section {
+  margin-bottom: 40px;
+}
+
+.slide-customization__title {
+  color: var(--secondary-fresh-blue-color);
+}
+
+.slide-customization__input {
+  display: block;
+  margin-bottom: 15px;
+  width: 70%;
+}
+
+/* .slide-customization__btn {
+  width: 80%;
+} */

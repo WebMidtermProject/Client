@@ -9,7 +9,7 @@ import ShowGroups from "./group/ShowGroups";
 import CreateGroupForm from "./group/CreateGroupForm";
 import GroupDetail from "./group/GroupDetail";
 import About from "./about/About";
-import { AUTHENTICATION } from "../constants/permission";
+
 import "../css/Content.css";
 
 const Content = (props) => {

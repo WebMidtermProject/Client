@@ -1,0 +1,27 @@
+.task-bar {
+  height: 50px;
+  background-color: var(--secondary-fresh-blue-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.task-bar__title {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+}
+
+.task-bar .btn-present {
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+}

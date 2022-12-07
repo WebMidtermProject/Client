@@ -1,0 +1,32 @@
+.scroll-slides {
+  background-color: var(--secondary-fresh-blue-color);
+}
+
+.scroll-slides__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.scroll-slides__item {
+  margin: 30px;
+  /*   width: 200px;
+  height: 100px; */
+  background-color: gray;
+  display: inline-block;
+}
+
+.scroll-slides__item.last-item {
+  padding: 0;
+  position: relative;
+}
+.scroll-slides__item.last-item span {
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

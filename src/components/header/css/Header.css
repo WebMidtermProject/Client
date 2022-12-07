@@ -1,6 +1,6 @@
 header {
   height: max-content;
-  padding: 20px 30px;
+  padding: 14px 20px;
   background-color: var(--header-color);
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@ header {
 
 .nav__item {
   display: inline-block;
-  margin: 0 30px;
+  margin: 0 24px;
 }
 
 .nav__list {
@@ -39,6 +39,16 @@ a:link:hover {
   font-family: sans-serif;
   margin: 0;
   letter-spacing: -0.5px;
+}
+
+.header__title {
+  font-size: 32px;
+  background: -webkit-linear-gradient(
+    var(--secondary-purple-color),
+    var(--secondary-pink-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .header__navbar {
@@ -77,11 +87,14 @@ a:link:hover {
 }
 
 .nav--right .btn-logout {
-  background-color: red;
-  color: white;
   border: none;
   border-radius: 8px;
   padding: 5px 10px;
+  background-color: var(--secondary-pink-color);
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  font-size: 12px;
 }
 
 .nav--right a {

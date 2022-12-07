@@ -1,8 +1,12 @@
 .section-group-list {
-  background-image: linear-gradient(to right bottom, #6a5af9, #f62682);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--secondary-purple-color),
+    var(--secondary-pink-color)
+  );
   padding: 8px;
   border-radius: 18px;
-  box-shadow: 0.5px 0.5px 25px #6a5af9;
+  box-shadow: 0.5px 0.5px 25px var(--secondary-purple-color);
 }
 
 .div-group-list {
@@ -20,7 +24,7 @@
   /*   width: 400px;
   height: 240px; */
 
-  border: 1px solid var(#f62682);
+  border: 1px solid var(var(--secondary-pink-color));
   border-radius: 14px;
 
   margin: 0;

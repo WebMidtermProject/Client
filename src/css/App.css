@@ -1,11 +1,21 @@
 :root {
-  --header-color: #099268;
-  --aside-color: #e9ecef;
-  --center-color: #fff;
-  --footer-color: #343a40;
-  --footer-text-color: #adb5bd;
+  /*   --header-color: #099268; */
+  --header-color: #191a28;
+  --footer-color: #191a28;
+  --bg-color: #212233;
 
-  --plain-bg-color: #151935;
+  --secondary-pink-color: #f62682;
+  --secondary-purple-color: #6a5af9;
+  --secondary-fresh-blue-color: #8be9fd;
+  --secondary-dark-blue-color: #6272a4;
+  --secondary-red-color: #ff5555;
+  --secondary-yellow-color: #f1fa8c;
+  /*   --aside-color: #e9ecef; */
+  /*   --center-color: #fff;
+
+    --footer-text-color: #adb5bd; */
+
+  --plain-bg-color: #191a28;
   --border-color: #f1f3f5;
   --dark-bg-color: #191a28;
   --light-dark-bg-color: #22243b;
@@ -21,6 +31,8 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-color);
+  color: white;
 }
 
 .app .content {
