@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
+import Chart from "./Chart";
 import "./css/Slide.css";
 
 const Slide = (props) => {
@@ -29,12 +30,13 @@ const Slide = (props) => {
       {cls !== "slide last-slide" && (
         <>
           <h4 className="slide__title">Slide title</h4>
-          <ul className="slide__list">
+          <Chart></Chart>
+          {/*           <ul className="slide__list">
             <li className="slide__answer">Answer A</li>
             <li className="slide__answer">Answer B</li>
             <li className="slide__answer">Answer C</li>
             <li className="slide__answer">Answer D</li>
-          </ul>
+          </ul> */}
         </>
       )}
       {cls === "slide last-slide" && <span className="slide__title">+</span>}
