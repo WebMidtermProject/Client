@@ -20,11 +20,11 @@ const Slide = (props) => {
   }
 
   let property = "";
-  if (size === "large") property = "center";
+  if (size === "large") property = " center";
 
   return (
     <Container
-      className={cls + " " + property}
+      className={cls + property}
       style={{ width: width, height: height }}
     >
       {cls !== "slide last-slide" && (

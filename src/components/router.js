@@ -8,6 +8,7 @@ import Profile from "./profile/Profile";
 import ShowGroups from "./group/ShowGroups";
 import CreateGroupForm from "./group/CreateGroupForm";
 import GroupDetail from "./group/GroupDetail";
+import PresentationList from "./presentation/PresentationList";
 import About from "./about/About";
 
 import "../css/Content.css";
@@ -84,6 +85,16 @@ const Content = (props) => {
             )
           }
         />
+        <Route
+          path="/group/:id/presentations"
+          element={
+            user ? (
+              <GroupDetail invite={true}></GroupDetail>
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        ></Route>
 
         <Route path="/about" element={<About></About>} />
       </Routes>

@@ -1,6 +1,6 @@
 .scroll-slides {
   background-color: var(--dark-bg-color);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .scroll-slides__list {
@@ -17,6 +17,19 @@
 
 .scroll-slides__item {
   background: transparent;
+  transition-delay: 0.1s;
+  transition: all 0.15s ease;
+}
+
+.scroll-slides__item:hover {
+  border-bottom: 5px solid var(--secondary-purple-color);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.scroll-slides__item.selected {
+  border: 5px solid var(--secondary-purple-color);
+  border-radius: 8px;
 }
 
 .scroll-slides__item.last-item {
