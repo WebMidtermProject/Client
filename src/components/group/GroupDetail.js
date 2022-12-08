@@ -52,7 +52,7 @@ const GroupDetail = (props) => {
           },
         });
         const data = await res.json();
-        console.log(data.data);
+        /*         console.log(data.data); */
         if (data.data !== undefined && data.data !== null) {
           setGroupDetail(data.data);
           setMemberList(data.data.memberList);

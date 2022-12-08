@@ -30,7 +30,6 @@ const App = () => {
           path="*"
           element={
             <>
-              {" "}
               <Header></Header>
               <Content user={user}></Content>
               <Footer></Footer>

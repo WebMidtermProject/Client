@@ -17,11 +17,11 @@ const CreateGroupForm = (props) => {
     e.preventDefault();
     const userJson = JSON.parse(localStorage.getItem("user"));
     const accessToken = userJson.accessToken;
-    console.log(
+    /*     console.log(
       JSON.stringify({
         title: e.target[0].value,
       })
-    );
+    ); */
     fetch(createGroupUrl, {
       method: "POST",
       headers: {
@@ -37,7 +37,7 @@ const CreateGroupForm = (props) => {
         return res;
       })
       .then((data) => {
-        if (data.statusCode === 200) {
+        if (data.status === 200) {
           setSuccess(true);
         }
       })

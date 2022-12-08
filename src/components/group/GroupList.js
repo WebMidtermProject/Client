@@ -6,8 +6,8 @@ import "./css/GroupList.css";
 
 const GroupList = (props) => {
   const navigate = useNavigate();
-  console.log(props.data);
-  console.log(typeof props.data);
+  /*   console.log(props.data);
+  console.log(typeof props.data); */
 
   const handleItemClick = (id) => {
     navigate(`/group/${id}`);

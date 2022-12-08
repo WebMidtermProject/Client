@@ -6,8 +6,10 @@ import GroupList from "./GroupList";
 import "./css/ShowGroups.css";
 
 const ShowGroups = (props) => {
-  const myGroupsAPI = process.env.REACT_APP_SERVER_HOST + "/group/get-my-groups";
-  const joinedGroupsAPI = process.env.REACT_APP_SERVER_HOST + "/group/get-joined-groups";
+  const myGroupsAPI =
+    process.env.REACT_APP_SERVER_HOST + "/group/get-my-groups";
+  const joinedGroupsAPI =
+    process.env.REACT_APP_SERVER_HOST + "/group/get-joined-groups";
 
   const [groups, setGroups] = useState([]);
 
@@ -16,8 +18,8 @@ const ShowGroups = (props) => {
       let api = myGroupsAPI;
       if (props.type === "joined groups") api = joinedGroupsAPI;
       const getData = async () => {
-        var userJson = JSON.parse(localStorage.getItem("user"));
-        var accessToken = userJson.accessToken;
+        const userJson = JSON.parse(localStorage.getItem("user"));
+        const accessToken = userJson.accessToken;
 
         const res = await fetch(api, {
           method: "GET",
@@ -30,7 +32,6 @@ const ShowGroups = (props) => {
         if (data.data.length !== 0) {
           setGroups(data.data);
         }
-
         return data;
       };
       getData();
