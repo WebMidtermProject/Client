@@ -8,6 +8,7 @@ import Footer from "./footer/Footer";
 import Content from "./router";
 
 import EditPresentation from "./presentation/EditPresentation.js";
+import Present from "./presentation/Present";
 
 import "../css/App.css";
 
@@ -37,8 +38,13 @@ const App = () => {
           }
         ></Route>
         <Route
-          path="/present/edit"
+          path="/group/:groupId/edit-presentation/:presentationId"
           element={<EditPresentation></EditPresentation>}
+        ></Route>
+
+        <Route
+          path="/group/:groupId/present/:presentationId"
+          element={<Present></Present>}
         ></Route>
       </Routes>
     </div>

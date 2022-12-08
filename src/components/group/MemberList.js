@@ -17,8 +17,8 @@ const MemberList = (props) => {
   const memberApi = "";
   const [members, setMembers] = useState(null);
 
-  useEffect(() => {
-    /*     const getMembers = async () => {
+  /*   useEffect(() => {
+    const getMembers = async () => {
       try {
         const res = await fetch(memberApi);
         const data = await res.json();
@@ -27,8 +27,8 @@ const MemberList = (props) => {
       } catch (err) {
         console.log(err.message);
       }
-    }; */
-  }, []);
+    };
+  }, []); */
 
   return (
     <Container className="section-member-list">

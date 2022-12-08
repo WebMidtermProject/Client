@@ -1,0 +1,16 @@
+.form .btn-submit {
+  background-image: linear-gradient(
+    to right bottom,
+    var(--secondary-purple-color),
+    var(--secondary-pink-color)
+  );
+  border: none;
+  padding: 6px 18px;
+
+  color: white;
+  border-radius: 8px;
+}
+
+.form .input-presentation-name {
+  margin-right: 20px;
+}

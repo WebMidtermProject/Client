@@ -25,6 +25,7 @@
 }
 
 .member-list {
+  height: 600px;
   color: black;
   list-style: none;
 

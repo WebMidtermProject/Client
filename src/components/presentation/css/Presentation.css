@@ -1,0 +1,9 @@
+.presentation {
+  width: 400px;
+  height: 240px;
+  background-color: var(--secondary-dark-gray-color);
+}
+
+.presentation__item {
+  margin-bottom: 50px;
+}

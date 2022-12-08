@@ -9,6 +9,8 @@ import ShowGroups from "./group/ShowGroups";
 import CreateGroupForm from "./group/CreateGroupForm";
 import GroupDetail from "./group/GroupDetail";
 import PresentationList from "./presentation/PresentationList";
+import CreatePresentationForm from "./presentation/CreatePresentationForm";
+
 import About from "./about/About";
 
 import "../css/Content.css";
@@ -89,7 +91,18 @@ const Content = (props) => {
           path="/group/:id/presentations"
           element={
             user ? (
-              <GroupDetail invite={true}></GroupDetail>
+              <GroupDetail presentations={true}></GroupDetail>
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
+        ></Route>
+
+        <Route
+          path="/group/:id/create-presentation"
+          element={
+            user ? (
+              <CreatePresentationForm></CreatePresentationForm>
             ) : (
               <Navigate to="/sign-in" />
             )

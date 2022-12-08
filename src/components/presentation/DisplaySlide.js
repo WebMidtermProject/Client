@@ -7,7 +7,7 @@ import "./css/DisplaySlide.css";
 const DisplaySlide = (props) => {
   return (
     <div className="display-slide">
-      <Slide size="large"></Slide>
+      <Slide size="large" ownerMode={false}></Slide>
     </div>
   );
 };

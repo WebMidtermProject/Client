@@ -15,13 +15,22 @@
   letter-spacing: 0.4px;
 }
 
-.task-bar .btn-present {
+.task-bar input {
   border: none;
   border-radius: 8px;
   padding: 5px 10px;
-  background-color: black;
+
   color: white;
   font-weight: bold;
   letter-spacing: 0.2px;
   font-size: 12px;
+}
+
+.task-bar .btn-present {
+  background-color: black;
+}
+
+.task-bar .btn-delete {
+  background-color: var(--secondary-red-color);
+  margin-right: 10px;
 }

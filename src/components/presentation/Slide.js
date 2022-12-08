@@ -6,6 +6,8 @@ import "./css/Slide.css";
 
 const Slide = (props) => {
   const size = props.size;
+  const ownerMode = props.ownerMode;
+  console.log(ownerMode);
   let cls = props.className;
 
   if (cls === "last-slide") cls = "slide " + cls;
@@ -29,8 +31,45 @@ const Slide = (props) => {
     >
       {cls !== "slide last-slide" && (
         <>
-          <h4 className="slide__title">Slide title</h4>
-          <Chart></Chart>
+          <h4 className="slide__question">Slide title</h4>
+          {ownerMode && <Chart className="owner-view"></Chart>}
+          {!ownerMode && (
+            <div className={"others-view " + size}>
+              <input
+                type="radio"
+                id="ans1"
+                name="fav_language"
+                value="Answer 1"
+              ></input>
+              <label htmlFor="ans1">Answer 1</label>
+              <br></br>
+              <input
+                type="radio"
+                id="ans2"
+                name="fav_language"
+                value="Answer 2"
+              ></input>
+              <label htmlFor="ans2">Answer 2</label>
+              <br></br>
+              <input
+                type="radio"
+                id="ans3"
+                name="fav_language"
+                value="Answer 3"
+              ></input>
+              <label htmlFor="ans3">Answer 3</label>
+              <br></br>
+              <input
+                type="radio"
+                id="ans4"
+                name="fav_language"
+                value="Answer 4"
+              ></input>
+              <label htmlFor="ans4">Answer 4</label>
+              <br></br>
+            </div>
+          )}
+
           {/*           <ul className="slide__list">
             <li className="slide__answer">Answer A</li>
             <li className="slide__answer">Answer B</li>
@@ -39,7 +78,7 @@ const Slide = (props) => {
           </ul> */}
         </>
       )}
-      {cls === "slide last-slide" && <span className="slide__title">+</span>}
+      {cls === "slide last-slide" && <span className="slide__question">+</span>}
     </Container>
   );
 };

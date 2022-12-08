@@ -3,15 +3,18 @@ import { Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 import MemberList from "./MemberList";
+import PresentationList from "../presentation/PresentationList";
+import useQuery from "../../hooks/useQuery";
 
 import "./css/GroupDetail.css";
 
 const GroupDetail = (props) => {
   const { id } = useParams();
+  const query = useQuery();
+  const page = query.get("page");
   //Get group detail from database
   //...
   ///
-
   const groupDetailLink = process.env.REACT_APP_SERVER_HOST + "/group/";
 
   const [groupDetail, setGroupDetail] = useState(null);
@@ -52,7 +55,7 @@ const GroupDetail = (props) => {
           },
         });
         const data = await res.json();
-        /*         console.log(data.data); */
+
         if (data.data !== undefined && data.data !== null) {
           setGroupDetail(data.data);
           setMemberList(data.data.memberList);
@@ -63,7 +66,6 @@ const GroupDetail = (props) => {
       getData();
     } catch (error) {
       setError(error.message);
-      /*       console.log("AA" + error.message); */
     }
   }, [groupDetailLink, id, props.invite]);
 
@@ -76,14 +78,27 @@ const GroupDetail = (props) => {
   };
 
   return (
-    <Container className="group__detail">
-      <h4 className="group__detail__name">Group title: {groupDetail?.title}</h4>
-      <MemberList data={memberList}></MemberList>
-      <button className="btn-invite-link" onClick={handleInviteByLink}>
-        Invite by link
-      </button>
+    <div className="group__detail">
+      <h4 className="group__detail__name">Group Name: {groupDetail?.title}</h4>
+      {!props.presentations && (
+        <>
+          <MemberList data={memberList}></MemberList>
+          <a
+            className="btn-presentation-list"
+            href="http://localhost:3001/group/4bbd170a-fcbe-44bd-9884-668d983d963a/presentations?page=1"
+          >
+            View presentations
+          </a>
+          <button className="btn-invite-link" onClick={handleInviteByLink}>
+            Invite by link
+          </button>
+        </>
+      )}
+      {props.presentations && (
+        <PresentationList groupID={id} page={page}></PresentationList>
+      )}
       <Row>{error && <span>{error}</span>}</Row>
-    </Container>
+    </div>
   );
 };
 
