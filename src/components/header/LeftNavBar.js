@@ -17,9 +17,6 @@ const LeftNavBar = (props) => {
               <a href="/joined-groups">Joined Groups</a>
             </li>
             <li className="nav__item">
-              <a href="/create-group">Create Group</a>
-            </li>
-            <li className="nav__item">
               <a href="/about">About</a>
             </li>
           </ul>

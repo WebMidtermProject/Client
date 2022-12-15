@@ -6,7 +6,6 @@ import SignInPage from "./login/SignInPage";
 import SignUpPage from "./sign-up/SignUpPage";
 import Profile from "./profile/Profile";
 import ShowGroups from "./group/ShowGroups";
-import CreateGroupForm from "./group/CreateGroupForm";
 import GroupDetail from "./group/GroupDetail";
 import PresentationList from "./presentation/PresentationList";
 import CreatePresentationForm from "./presentation/CreatePresentationForm";
@@ -53,17 +52,6 @@ const Content = (props) => {
           element={
             user ? (
               <ShowGroups type="joined groups"></ShowGroups>
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
-        />
-
-        <Route
-          path="/create-group"
-          element={
-            user ? (
-              <CreateGroupForm></CreateGroupForm>
             ) : (
               <Navigate to="/sign-in" />
             )
