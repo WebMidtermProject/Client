@@ -21,29 +21,6 @@ const GroupList = (props) => {
       <div className="div-group-list">
         <ul className="group-list">
           {props.title && <h5 className="group-list__title">{props.title}</h5>}
-          {typeof props.data === "object" ? (
-            props.data.map((item, key) => {
-              return (
-                <li
-                  className="group-list__item"
-                  key={key}
-                  onClick={() => handleItemClick(item.id)}
-                >
-                  <div className="group-list__item--left">
-                    <span className="group-name">{item.title}</span>
-                    <span className="group-num-member">
-                      {item.total_member}
-                    </span>
-                  </div>
-                  <span className="group-author">
-                    {item.owner_first_name} {item.owner_last_name}
-                  </span>
-                </li>
-              );
-            })
-          ) : (
-            <></>
-          )}
         </ul>
       </div>
     </Container>
@@ -51,3 +28,27 @@ const GroupList = (props) => {
 };
 
 export default GroupList;
+
+/* {typeof props.data === "object" ? (
+  props.data.map((item, key) => {
+    return (
+      <li
+        className="group-list__item"
+        key={key}
+        onClick={() => handleItemClick(item.id)}
+      >
+        <div className="group-list__item--left">
+          <span className="group-name">{item.title}</span>
+          <span className="group-num-member">
+            {item.total_member}
+          </span>
+        </div>
+        <span className="group-author">
+          {item.owner_first_name} {item.owner_last_name}
+        </span>
+      </li>
+    );
+  })
+) : (
+  <></>
+)} */

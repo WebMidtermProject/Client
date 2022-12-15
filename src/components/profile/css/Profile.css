@@ -3,7 +3,7 @@
   padding: 12px;
   border-radius: 18px;
   color: white;
-  text-shadow: 0.15px 0.15px 6px whitesmoke;
+  /*   text-shadow: 0.15px 0.15px 6px whitesmoke; */
 }
 
 .profile--sub {
@@ -70,6 +70,11 @@
   gap: 120px;
 }
 
+.profile_group__left,
+.profile_group__right {
+  width: 400px;
+}
+
 .profile h3 {
   font-size: 18px;
   font-weight: bold;
@@ -81,7 +86,7 @@
   margin: 0 auto;
 }
 
-.profile .group-list {
+/* .profile .group-list {
   width: 400px;
   height: 240px;
 
@@ -111,4 +116,4 @@
 
 .profile__group--two-col div {
   cursor: pointer;
-}
+} */

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-import ShowGroups from "../group/ShowGroups";
+import ShowGroups from "../group/List";
 import BasicModal from "../modal/BasicModal";
 import NewGroupForm from "../form/NewGroupForm";
 import GradientButton from "../button/GradientButton";
