@@ -17,7 +17,7 @@
   border-radius: inherit;
 }
 
-.member-list__item {
+.member__item {
   padding: 20px 30px;
   display: flex;
   justify-content: space-between;
@@ -50,15 +50,15 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.member-list__item:last-child {
+.member__item:last-child {
   border-bottom: none;
 }
 
-.member-list__item:nth-child(even) {
+.member__item:nth-child(even) {
   background: #f1f3f5;
 }
 
-.member-list__item .member-list__item--left {
+.member__item .member__item--left {
   display: flex;
   align-items: center;
   gap: 15px;

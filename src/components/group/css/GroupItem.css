@@ -23,18 +23,18 @@
   gap: 15px;
 }
 
-.group__item .group-name {
+.group__item .group__name {
   font-size: 24px;
   font-weight: bold;
   text-shadow: 0.15px 0.15px 6px whitesmoke;
 }
 
-.group__item .group-num-member {
+.group__item .group__total-member {
   font-size: 12px;
   color: var(--secondary-pink-color);
 }
 
-.group__item .group-author {
+.group__item .group__author {
   font-size: 11px;
   font-style: italic;
   color: white;

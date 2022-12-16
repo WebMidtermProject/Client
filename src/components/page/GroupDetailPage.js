@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
-import MemberList from "./MemberList";
+import List from "../group/List";
 import PresentationList from "../presentation/PresentationList";
 import useQuery from "../../hooks/useQuery";
 
-import "./css/GroupDetail.css";
+import "./css/GroupDetailPage.css";
 
 const GroupDetail = (props) => {
   const { id } = useParams();
@@ -78,17 +78,18 @@ const GroupDetail = (props) => {
   };
 
   return (
-    <div className="group__detail">
-      <h4 className="group__detail__name">Group Name: {groupDetail?.title}</h4>
+    <div className="page">
+      <h4 className="page__title">Group detail</h4>
       {!props.presentations && (
         <>
-          <MemberList data={memberList}></MemberList>
+          <List type="member" list={memberList}></List>
+          {/*           <MemberList data={memberList}></MemberList>
           <a
             className="btn-presentation-list"
             href="http://localhost:3001/group/4bbd170a-fcbe-44bd-9884-668d983d963a/presentations?page=1"
           >
             View presentations
-          </a>
+          </a> */}
           <button className="btn-invite-link" onClick={handleInviteByLink}>
             Invite by link
           </button>

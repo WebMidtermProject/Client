@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import SignInPage from "./login/SignInPage";
 import SignUpPage from "./sign-up/SignUpPage";
 import Profile from "./profile/Profile";
-import GroupDetail from "./group/GroupDetail";
+import GroupDetailPage from "./page/GroupDetailPage";
 import PresentationList from "./presentation/PresentationList";
 import CreatePresentationForm from "./presentation/CreatePresentationForm";
 
@@ -63,7 +63,11 @@ const Content = (props) => {
         <Route
           path="/group/:id"
           element={
-            user ? <GroupDetail></GroupDetail> : <Navigate to="/sign-in" />
+            user ? (
+              <GroupDetailPage></GroupDetailPage>
+            ) : (
+              <Navigate to="/sign-in" />
+            )
           }
         />
 
@@ -71,7 +75,7 @@ const Content = (props) => {
           path="/group/:id/invite"
           element={
             user ? (
-              <GroupDetail invite={true}></GroupDetail>
+              <GroupDetailPage invite={true}></GroupDetailPage>
             ) : (
               <Navigate to="/sign-in" />
             )
@@ -81,7 +85,7 @@ const Content = (props) => {
           path="/group/:id/presentations"
           element={
             user ? (
-              <GroupDetail presentations={true}></GroupDetail>
+              <GroupDetailPage presentations={true}></GroupDetailPage>
             ) : (
               <Navigate to="/sign-in" />
             )

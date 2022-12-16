@@ -18,11 +18,11 @@ const GroupItem = (props) => {
     >
       <Link className="group__item--link" to={`/group/${props.id}`}>
         <div className="group__item-head">
-          <span className="group-name">{props.title}</span>
-          <span className="group-num-member">{props.total_member}</span>
+          <span className="group__name">{props.title}</span>
+          <span className="group__total-member">{props.total_member}</span>
         </div>
-        <div className="group__item-head">
-          <span className="group-author">
+        <div className="group__item-tail">
+          <span className="group__author">
             {props.owner_first_name} {props.owner_last_name}
           </span>
         </div>
