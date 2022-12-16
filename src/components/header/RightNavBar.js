@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
+import MonoButton from "../button/MonoButton";
+
+import "./css/RightNavBar.css";
+
 const RightNavBar = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const handleLogoutClick = (event) => {
@@ -37,14 +41,11 @@ const RightNavBar = (props) => {
               )}
             </a>
           </li>
-          <li>
-            <input
-              className="btn-logout"
-              type="button"
-              value="Logout"
-              onClick={handleLogoutClick}
-            />
-          </li>
+          <MonoButton
+            className="btn-logout"
+            name="Logout"
+            onClick={handleLogoutClick}
+          ></MonoButton>
         </ul>
       )}
     </nav>

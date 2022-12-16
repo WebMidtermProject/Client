@@ -1,12 +1,13 @@
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-import ShowGroups from "../group/List";
+import List from "../group/List";
 import BasicModal from "../modal/BasicModal";
 import NewGroupForm from "../form/NewGroupForm";
 import GradientButton from "../button/GradientButton";
+import GradientCard from "../container/GradientCard";
+import MonoButton from "../button/MonoButton";
 
 import "./css/Profile.css";
 
@@ -74,10 +75,13 @@ const Profile = (props) => {
 
   return (
     <>
-      <Container className="profile">
-        <div className="profile--sub">
-          <section className="profile__info">
-            <div className="profile__info--general">
+      {/* <Container className="profile">
+        <div className="profile--sub"></div>
+      </Container> */}
+      <GradientCard className="profile card--lg">
+        <div className="profile-content">
+          <div className="profile-upper">
+            <div className="profile-upper--general">
               <img
                 className="profile__img"
                 src={
@@ -94,12 +98,17 @@ const Profile = (props) => {
                       ? userInfo?.first_name + userInfo?.last_name
                       : "User Fullname"}
                   </span>
-                  <input
+                  {/*                 <input
                     type="button"
                     name="change-name"
                     value="change"
                     onClick={() => setEdit(true)}
-                  />
+                  /> */}
+                  <MonoButton
+                    className="btn-change-name"
+                    onClick={() => setEdit(true)}
+                    name="Change"
+                  ></MonoButton>
                 </>
               )}
 
@@ -119,9 +128,9 @@ const Profile = (props) => {
                 </>
               )}
             </div>
-            <div className="profile__info--detail">
+            <div className="profile-upper--detail">
               <h3>Description</h3>
-              <div className="profile__info__description">
+              <div className="profile-upper__description">
                 <p>
                   {props.user && props.user.description
                     ? props.user.description
@@ -129,31 +138,29 @@ const Profile = (props) => {
                 </p>
               </div>
             </div>
-          </section>
+          </div>
 
-          <section className="profile__group">
-            <h3 className="profile__group__label">Groups</h3>
-            <div className="profile__group--two-col">
+          <div className="profile-below">
+            <h3 className="profile-below__label">Groups</h3>
+            <div className="profile-below--two-col">
               <div
-                className="profile_group__left"
+                className="profile-group__left"
                 onClick={() => handleGroupClick("/my-groups")}
               >
-                <ShowGroups profile={true} title={"My groups"}></ShowGroups>
+                <h5 className="profile-group__title">My groups</h5>
+                <List className="card--sm" profile={true}></List>
               </div>
               <div
-                className="profile_group__right"
+                className="profile-group__right"
                 onClick={() => handleGroupClick("/joined-groups")}
               >
-                <ShowGroups
-                  type="joined groups"
-                  title={"Joined groups"}
-                  profile={true}
-                ></ShowGroups>
+                <h5 className="profile-group__title">My groups</h5>
+                <List className="card--sm" type="joined" profile={true}></List>
               </div>
             </div>
-          </section>
+          </div>
           <GradientButton
-            className="btn"
+            className="btn-new-group"
             onClick={toggleModal}
             type="submit"
             name="New group"
@@ -161,7 +168,7 @@ const Profile = (props) => {
             New Group
           </GradientButton>
         </div>
-      </Container>
+      </GradientCard>
 
       {modal && (
         <BasicModal toggleModal={toggleModal}>

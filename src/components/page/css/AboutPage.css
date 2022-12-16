@@ -1,0 +1,32 @@
+.member__list {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px;
+}
+
+.member__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 40px;
+}
+
+.member__name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f62682;
+}
+
+.member__id {
+  font-size: 12;
+  font-style: italic;
+  color: #6a5af9;
+}
+
+.member__img {
+  width: 180px;
+  height: 180px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}

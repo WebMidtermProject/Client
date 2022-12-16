@@ -1,0 +1,11 @@
+.btn {
+  border: none;
+  color: white;
+  border-radius: 8px;
+  min-width: min-content;
+  min-height: min-content;
+  margin: 0 auto;
+
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}

@@ -1,0 +1,9 @@
+.btn.btn-logout {
+  width: max-content;
+  height: max-content;
+  padding: 4px 8px;
+  background-color: var(--secondary-pink-color);
+
+  font-size: 12px;
+  box-shadow: 0.5px 0.5px 15px var(--secondary-pink-color);
+}

@@ -1,0 +1,53 @@
+.card--outside {
+  height: 100%;
+  margin: 0px;
+  padding: 6px;
+  border-radius: 10px;
+  box-shadow: 0.5px 0.5px 25px var(--secondary-purple-color);
+
+  background-color: #191a28;
+
+  background-image: linear-gradient(
+    to right bottom,
+    var(--secondary-purple-color),
+    var(--secondary-pink-color)
+  );
+}
+
+.card--inside {
+  height: 100%;
+  color: black;
+  list-style: none;
+
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 3px 1px;
+}
+
+.card-radius-fix {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  background-color: var(--bg-color);
+}
+
+.card-radius-fix::-webkit-scrollbar {
+  width: 5px;
+}
+
+.card-radius-fix::-webkit-scrollbar-track {
+  background-color: #fafafa;
+  border-radius: 50px;
+}
+
+.card-radius-fix::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-dark-blue-color);
+  border-radius: 50px;
+}

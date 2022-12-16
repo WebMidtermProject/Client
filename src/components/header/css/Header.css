@@ -86,7 +86,7 @@ a:link:hover {
   gap: 20px;
 }
 
-.nav--right .btn-logout {
+/* .nav--right .btn-logout {
   border: none;
   border-radius: 8px;
   padding: 5px 10px;
@@ -95,7 +95,7 @@ a:link:hover {
   font-weight: bold;
   letter-spacing: 0.2px;
   font-size: 12px;
-}
+} */
 
 .nav--right a {
   display: flex;

@@ -1,31 +1,25 @@
-.fix-border-radius-div {
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
+.card {
+  margin: 0 auto;
+}
 
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-
-  -webkit-overflow-scrolling: touch;
+.card--lg {
   height: 100%;
-  background-color: var(--bg-color);
 }
 
-.fix-border-radius-div::-webkit-scrollbar {
-  width: 5px;
+.card--sm {
+  height: 180px;
 }
 
-.fix-border-radius-div::-webkit-scrollbar-track {
-  background-color: #fafafa;
-  border-radius: 50px;
+.card--lg .card--inside {
+  height: 100%;
 }
 
-.fix-border-radius-div::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-dark-blue-color);
-  border-radius: 50px;
+.card--sm .card--inside {
+  height: 100%;
 }
 
 .group__list {
   padding: 0px;
   color: white;
+  list-style-type: none;
 }

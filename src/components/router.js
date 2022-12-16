@@ -5,12 +5,14 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import SignInPage from "./login/SignInPage";
 import SignUpPage from "./sign-up/SignUpPage";
 import Profile from "./profile/Profile";
-import ShowGroups from "./group/List";
 import GroupDetail from "./group/GroupDetail";
 import PresentationList from "./presentation/PresentationList";
 import CreatePresentationForm from "./presentation/CreatePresentationForm";
 
-import About from "./about/About";
+import MyGroupPage from "./page/MyGroupPage";
+import JoinedGroupPage from "./page/JoinedGroupPage";
+
+import AboutPage from "./page/AboutPage";
 
 import "../css/Content.css";
 
@@ -43,7 +45,7 @@ const Content = (props) => {
         <Route
           path="/my-groups"
           element={
-            user ? <ShowGroups></ShowGroups> : <Navigate to="/sign-in" />
+            user ? <MyGroupPage></MyGroupPage> : <Navigate to="/sign-in" />
           }
         />
 
@@ -51,7 +53,7 @@ const Content = (props) => {
           path="/joined-groups"
           element={
             user ? (
-              <ShowGroups type="joined groups"></ShowGroups>
+              <JoinedGroupPage></JoinedGroupPage>
             ) : (
               <Navigate to="/sign-in" />
             )
@@ -97,7 +99,7 @@ const Content = (props) => {
           }
         ></Route>
 
-        <Route path="/about" element={<About></About>} />
+        <Route path="/about" element={<AboutPage></AboutPage>} />
       </Routes>
     </article>
   );
