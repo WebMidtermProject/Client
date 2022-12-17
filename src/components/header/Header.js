@@ -1,14 +1,17 @@
-import React from 'react'
+import React from "react";
 
-import LeftNavBar from './LeftNavBar'
-import RightNavBar from './RightNavBar'
+import LeftNavBar from "./LeftNavBar";
+import RightNavBar from "./RightNavBar";
 
-import './css/Header.css'
+import "./css/Header.css";
 
 const Header = (props) => {
   // const [user, setUser] = useState(props.user)
   return (
     <header>
+      <audio autoplay>
+        <source src="./bg-music.mp3" />
+      </audio>
       <h1 className="header__title">
         <a href="/">KAHOOT DUPE</a>
       </h1>
@@ -17,7 +20,7 @@ const Header = (props) => {
         <RightNavBar></RightNavBar>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
