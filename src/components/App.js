@@ -26,6 +26,9 @@ const App = () => {
 
   return (
     <div className="app">
+      <audio autoPlay>
+        <source src="./bg-music.mp3" />
+      </audio>
       {/*         <Route
           path="*"
           element={

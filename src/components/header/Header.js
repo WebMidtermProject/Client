@@ -9,9 +9,6 @@ const Header = (props) => {
   // const [user, setUser] = useState(props.user)
   return (
     <header>
-      <audio autoplay>
-        <source src="./bg-music.mp3" />
-      </audio>
       <h1 className="header__title">
         <a href="/">KAHOOT DUPE</a>
       </h1>
