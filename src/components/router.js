@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import SignInPage from "./login/SignInPage";
 import SignUpPage from "./sign-up/SignUpPage";
-import Profile from "./profile/Profile";
+import Profile from "./page/ProfilePage";
 import GroupDetailPage from "./page/GroupDetailPage";
 import PresentationList from "./presentation/PresentationList";
 import CreatePresentationForm from "./presentation/CreatePresentationForm";

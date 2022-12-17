@@ -1,7 +1,7 @@
 .content {
-  padding: 30px 20px;
+  position: relative;
 }
 
-.content h2 {
+/* .content h2 {
   margin-bottom: 20px;
-}
+} */

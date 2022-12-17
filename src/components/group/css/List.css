@@ -2,24 +2,26 @@
   margin: 0 auto;
 }
 
-.card--lg {
-  height: 100%;
-}
-
-.card--sm {
-  height: 180px;
-}
-
-.card--lg .card--inside {
-  height: 100%;
-}
-
-.card--sm .card--inside {
-  height: 100%;
-}
-
 .group__list {
   padding: 0px;
   color: white;
   list-style-type: none;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.group__list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.group__list::-webkit-scrollbar-track {
+  background-color: #fafafa;
+  border-radius: 50px;
+}
+
+.group__list::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-dark-blue-color);
+  border-radius: 50px;
 }

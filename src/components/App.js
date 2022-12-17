@@ -26,8 +26,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <Routes>
-        <Route
+      {/*         <Route
           path="*"
           element={
             <>
@@ -45,8 +44,10 @@ const App = () => {
         <Route
           path="/group/:groupId/present/:presentationId"
           element={<Present></Present>}
-        ></Route>
-      </Routes>
+        ></Route> */}
+      <Header></Header>
+      <Content user={user}></Content>
+      <Footer></Footer>
     </div>
   );
 };

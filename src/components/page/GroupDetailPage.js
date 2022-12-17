@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
 
 import List from "../group/List";
 import PresentationList from "../presentation/PresentationList";
+import MonoButton from "../button/MonoButton";
+import Loading from "../loading/Loading";
 import useQuery from "../../hooks/useQuery";
 
 import "./css/GroupDetailPage.css";
 
 const GroupDetail = (props) => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const query = useQuery();
   const page = query.get("page");
-  //Get group detail from database
-  //...
-  ///
+
   const groupDetailLink = process.env.REACT_APP_SERVER_HOST + "/group/";
 
   const [groupDetail, setGroupDetail] = useState(null);
   const [memberList, setMemberList] = useState([]);
   const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     try {
       const inviteUser = async () => {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -64,8 +68,14 @@ const GroupDetail = (props) => {
         return data;
       };
       getData();
+      setTimeout(() => {
+        setLoading(false);
+      }, 350);
     } catch (error) {
       setError(error.message);
+      setTimeout(() => {
+        setLoading(false);
+      }, 350);
     }
   }, [groupDetailLink, id, props.invite]);
 
@@ -77,28 +87,34 @@ const GroupDetail = (props) => {
     alert("Copied invite link to clipboard");
   };
 
+  const handlePresentationClick = () => {
+    navigate(
+      "/group/4bbd170a-fcbe-44bd-9884-668d983d963a/presentations?page=1"
+    );
+  };
+
   return (
-    <div className="page">
-      <h4 className="page__title">Group detail</h4>
-      {!props.presentations && (
-        <>
-          <List type="member" list={memberList}></List>
-          {/*           <MemberList data={memberList}></MemberList>
-          <a
-            className="btn-presentation-list"
-            href="http://localhost:3001/group/4bbd170a-fcbe-44bd-9884-668d983d963a/presentations?page=1"
-          >
-            View presentations
-          </a> */}
-          <button className="btn-invite-link" onClick={handleInviteByLink}>
-            Invite by link
-          </button>
-        </>
-      )}
-      {props.presentations && (
-        <PresentationList groupID={id} page={page}></PresentationList>
-      )}
-      <Row>{error && <span>{error}</span>}</Row>
+    <div className="page page--detail-group">
+      <div className="page__header">
+        <h4 className="page__title">My groups</h4>
+      </div>
+
+      <div className="page__content">
+        <List h="550px" w="800px" type="member" list={memberList}></List>
+      </div>
+
+      <div className="page__footer">
+        <MonoButton
+          className="btn-logout"
+          name="Presents"
+          onClick={handlePresentationClick}
+        ></MonoButton>
+        <MonoButton
+          className="btn-logout"
+          name="Invite by link"
+          onClick={handleInviteByLink}
+        ></MonoButton>
+      </div>
     </div>
   );
 };

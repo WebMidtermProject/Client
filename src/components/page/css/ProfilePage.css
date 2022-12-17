@@ -1,3 +1,7 @@
+.page--profile .page__content {
+  align-self: center;
+}
+
 .profile-content {
   color: white;
   padding: 20px;

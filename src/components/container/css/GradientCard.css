@@ -1,6 +1,5 @@
 .card--outside {
-  height: 100%;
-  margin: 0px;
+  margin: 0 auto;
   padding: 6px;
   border-radius: 10px;
   box-shadow: 0.5px 0.5px 25px var(--secondary-purple-color);
@@ -24,7 +23,7 @@
   padding: 3px 1px;
 }
 
-.card-radius-fix {
+/* .card-radius-fix {
   margin: 0;
   padding: 0;
   overflow-y: auto;
@@ -33,21 +32,5 @@
   font-size: 16px;
   font-family: Arial, sans-serif;
 
-  -webkit-overflow-scrolling: touch;
-  height: 100%;
   background-color: var(--bg-color);
-}
-
-.card-radius-fix::-webkit-scrollbar {
-  width: 5px;
-}
-
-.card-radius-fix::-webkit-scrollbar-track {
-  background-color: #fafafa;
-  border-radius: 50px;
-}
-
-.card-radius-fix::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-dark-blue-color);
-  border-radius: 50px;
-}
+} */

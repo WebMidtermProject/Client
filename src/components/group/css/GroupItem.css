@@ -1,5 +1,6 @@
 .group__item {
-  padding: 10px 40px;
+  min-width: 100px;
+  padding: 5px 40px;
   background-color: inherit;
 }
 

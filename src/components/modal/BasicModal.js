@@ -1,17 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import Overlay from "../overlay/Overlay";
 import "./css/BasicModal.css";
 
 const BasicModal = (props) => {
   return (
     <div className="basic-modal">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.25 }}
-        className="basic-modal-overlay"
-      >
+      <Overlay>
         <motion.div
           className="basic-modal-content"
           initial={{ scale: 0, translateX: "-50%", translateY: "-50%" }}
@@ -27,7 +23,7 @@ const BasicModal = (props) => {
             X
           </button>
         </motion.div>
-      </motion.div>
+      </Overlay>
     </div>
   );
 };

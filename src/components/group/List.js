@@ -3,7 +3,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import GradientContainer from "../container/GradientCard";
+import GradientCard from "../container/GradientCard";
 import GroupItem from "./GroupItem";
 import MemberItem from "./MemberItem";
 
@@ -11,11 +11,9 @@ import "./css/List.css";
 
 const List = (props) => {
   return (
-    <GradientContainer
-      className={props.className ? "card " + props.className : "card"}
-    >
+    <GradientCard h={props.h} w={props.w} mh={props.mh} mw={props.mw}>
       <ul className="group__list">
-        {props.type !== "member" &&
+        {/*         {props.type !== "member" &&
           typeof props.list === "object" &&
           props.list.map((item, key) => {
             return (
@@ -27,7 +25,7 @@ const List = (props) => {
                 owner_last_name={item.owner_last_name}
               ></GroupItem>
             );
-          })}
+          })} */}
         {/*        {props.type === "member" && typeof props.list === "object" &&
           props.list.map((item, key) => {
             return (
@@ -41,6 +39,48 @@ const List = (props) => {
           })} */}
         {props.type !== "member" && (
           <>
+            <GroupItem
+              id="1"
+              title="item"
+              total_member="69"
+              owner_first_name="first"
+              owner_last_name="last"
+            ></GroupItem>
+            <GroupItem
+              id="1"
+              title="item"
+              total_member="69"
+              owner_first_name="first"
+              owner_last_name="last"
+            ></GroupItem>
+            <GroupItem
+              id="1"
+              title="item"
+              total_member="69"
+              owner_first_name="first"
+              owner_last_name="last"
+            ></GroupItem>
+            <GroupItem
+              id="1"
+              title="item"
+              total_member="69"
+              owner_first_name="first"
+              owner_last_name="last"
+            ></GroupItem>
+            <GroupItem
+              id="1"
+              title="item"
+              total_member="69"
+              owner_first_name="first"
+              owner_last_name="last"
+            ></GroupItem>
+            <GroupItem
+              id="1"
+              title="item"
+              total_member="69"
+              owner_first_name="first"
+              owner_last_name="last"
+            ></GroupItem>
             <GroupItem
               id="1"
               title="item"
@@ -155,6 +195,48 @@ const List = (props) => {
               first_name="user"
               last_name="name"
               role="role"
+            ></MemberItem>
+            <MemberItem
+              id="1"
+              first_name="user"
+              last_name="name"
+              role="role"
+            ></MemberItem>
+            <MemberItem
+              id="1"
+              first_name="user"
+              last_name="name"
+              role="role"
+            ></MemberItem>
+            <MemberItem
+              id="1"
+              first_name="user"
+              last_name="name"
+              role="role"
+            ></MemberItem>
+            <MemberItem
+              id="1"
+              first_name="user"
+              last_name="name"
+              role="role"
+            ></MemberItem>
+            <MemberItem
+              id="1"
+              first_name="user"
+              last_name="name"
+              role="role"
+            ></MemberItem>
+            <MemberItem
+              id="1"
+              first_name="user"
+              last_name="name"
+              role="role"
+            ></MemberItem>
+            <MemberItem
+              id="1"
+              first_name="user"
+              last_name="name"
+              role="role"
             ></MemberItem>{" "}
             <MemberItem
               id="1"
@@ -201,7 +283,7 @@ const List = (props) => {
           </>
         )}
       </ul>
-    </GradientContainer>
+    </GradientCard>
   );
 };
 
