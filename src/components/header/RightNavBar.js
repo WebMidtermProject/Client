@@ -6,15 +6,14 @@ import MonoButton from "../button/MonoButton";
 import "./css/RightNavBar.css";
 
 const RightNavBar = (props) => {
-  const user = JSON.parse(localStorage.getItem("user"));
   const handleLogoutClick = (event) => {
     event.preventDefault();
     localStorage.removeItem("user");
     window.location = "/";
   };
   return (
-    <nav className="nav nav--right">
-      {!user && (
+    <nav className="nav--right">
+      {props.user === null && (
         <ul className="nav__list">
           <li className="nav__item">
             <a href="/sign-in">Sign in</a>
@@ -24,17 +23,17 @@ const RightNavBar = (props) => {
           </li>
         </ul>
       )}
-      {user && (
+      {props.user !== null && (
         <ul className="nav__list">
           <li className="nav__item">
             <a href="/profile">
-              <h2 className="nav__item__user__name">
-                {user?.name ? user.name : "Username"}
+              <h2 className="nav__user__name">
+                {props.user?.name ? props.user.name : "Username"}
               </h2>
-              {user?.img && <img src={user.img} alt="" />}
-              {!user?.img && (
+              {props.user?.img && <img src={props.user.img} alt="" />}
+              {!props.user?.img && (
                 <img
-                  className="nav__item__user__img"
+                  className="nav__user__img"
                   src="https://cdn3.vectorstock.com/i/thumb-large/32/12/default-avatar-profile-icon-vector-39013212.jpg"
                   alt=""
                 />

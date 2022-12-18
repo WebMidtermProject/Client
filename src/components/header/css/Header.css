@@ -9,13 +9,15 @@ header {
 
 .nav__item {
   display: inline-block;
-  margin: 0 24px;
 }
 
 .nav__list {
   list-style: none;
   display: inline-block;
   margin: 0;
+
+  display: flex;
+  gap: 48px;
 }
 
 a,
@@ -24,6 +26,8 @@ a:link {
   text-decoration: none;
   transition: all 0.15s ease-in-out;
   transition-delay: 0.05s;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 a:hover,
@@ -56,34 +60,34 @@ a:link:hover {
   justify-content: space-between;
   align-items: center;
   flex: auto;
+  gap: 200px;
 }
 
-.header__navbar .nav__item {
+.nav__item {
   font-size: 16px;
+  width: max-content;
 }
 
-.header__navbar .nav__item:hover {
+.nav__item:hover {
   font-size: 17px;
   font-weight: 600;
 }
 
-.header__navbar .nav__item .nav__item__user__img {
-  width: 30px;
-  height: 30px;
+.nav__item .nav__user__img {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
 }
 
-.header__navbar .nav__item .nav__item__user__name {
+.nav__item .nav__user__name {
   color: white;
   font-size: 18px;
   margin-top: 10px;
+  text-transform: none;
 }
 
 .nav--right .nav__list {
-  display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
 }
 
 /* .nav--right .btn-logout {

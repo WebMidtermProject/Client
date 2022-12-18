@@ -13,8 +13,8 @@ const Header = (props) => {
         <a href="/">KAHOOT DUPE</a>
       </h1>
       <div className="header__navbar">
-        <LeftNavBar></LeftNavBar>
-        <RightNavBar></RightNavBar>
+        <LeftNavBar user={props.user}></LeftNavBar>
+        <RightNavBar user={props.user}></RightNavBar>
       </div>
     </header>
   );
