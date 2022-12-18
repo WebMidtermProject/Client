@@ -1,12 +1,13 @@
 .page {
   flex: 1;
   position: relative;
-  padding: 40px;
+  padding: 20px;
+}
 
-  /*   display: flex;
+.page > div {
+  display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: stretch; */
 }
 
 /* .page .page__content {

@@ -1,4 +1,5 @@
-.group__detail {
-  height: 100%;
-  position: relative;
+.page--detail-group .page__footer {
+  width: max-content;
+  display: flex;
+  gap: 20px;
 }

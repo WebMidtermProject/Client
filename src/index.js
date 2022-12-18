@@ -13,6 +13,7 @@ import GroupDeTailPage from "./components/page/GroupDetailPage";
 import AboutPage from "./components/page/AboutPage";
 
 import "./index.css";
+import PresentationList from "./components/presentation/PresentationList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const user = localStorage.getItem("user");
@@ -56,14 +57,19 @@ root.render(
             }
           ></Route>
           <Route
-            path="groups/:id"
+            path="groups/:groupId"
             element={
               <ProtectedRoute user={user}>
                 <GroupDeTailPage />
               </ProtectedRoute>
             }
-          ></Route>
-          {/*           <Route path="group" element={<GroupDetail />}></Route> */}
+          >
+            {/*             <Route path="presentations/:presentId">
+              <ProtectedRoute user={user}>
+                <PresentationList />
+              </ProtectedRoute>
+            </Route> */}
+          </Route>
           <Route path="about" element={<AboutPage />}></Route>
           {/* others */}
           <Route path="*" element={<h1>404 Not found</h1>}></Route>

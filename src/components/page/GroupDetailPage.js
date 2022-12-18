@@ -13,8 +13,8 @@ import "./css/GroupDetailPage.css";
 const GroupDetail = (props) => {
   const navigate = useNavigate();
 
-  const { id } = useParams();
-  console.log(id);
+  const { groupId } = useParams();
+  console.log(groupId);
   const query = useQuery();
   const page = query.get("page");
 
@@ -39,16 +39,16 @@ const GroupDetail = (props) => {
               "Content-Type": "application/json",
               "api-token": `${accessToken}`,
             },
-            body: JSON.stringify({ userID: user.id, groupID: id }),
+            body: JSON.stringify({ userID: user.id, groupID: groupId }),
           });
-          alert(`Joined to group #${id}`);
+          alert(`Joined to group #${groupId}`);
         } catch (error) {
           console.log(error.message);
         }
       };
       if (props.invite) inviteUser();
 
-      let api = groupDetailLink + id;
+      let api = groupDetailLink + groupId;
       const getData = async () => {
         var userJson = JSON.parse(localStorage.getItem("user"));
         var accessToken = userJson.accessToken;
@@ -78,11 +78,11 @@ const GroupDetail = (props) => {
         setLoading(false);
       }, Math.floor(Math.random() * 1000) + 500);
     }
-  }, [groupDetailLink, id, props.invite]);
+  }, [groupDetailLink, groupId, props.invite]);
 
   const handleInviteByLink = (e) => {
     e.preventDefault();
-    const inviteLink = "localhost:3000/group/" + id + "/invite";
+    const inviteLink = "localhost:3000/group/" + groupId + "/invite";
     // Copy the text inside the text field
     navigator.clipboard.writeText(inviteLink);
     alert("Copied invite link to clipboard");
@@ -95,7 +95,7 @@ const GroupDetail = (props) => {
   };
 
   return (
-    <div className="page page--detail-group">
+    <div className="page--detail-group">
       <div className="page__header">
         <h4 className="page__title">My groups</h4>
       </div>
