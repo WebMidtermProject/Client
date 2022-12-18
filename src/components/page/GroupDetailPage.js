@@ -14,6 +14,7 @@ const GroupDetail = (props) => {
   const navigate = useNavigate();
 
   const { id } = useParams();
+  console.log(id);
   const query = useQuery();
   const page = query.get("page");
 

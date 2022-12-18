@@ -16,7 +16,7 @@ const MemberItem = (props) => {
       transition={{ duration: 0.15 }}
       key={props.key}
     >
-      <Link className="member__item--link" to="/">
+      <Link className="member__item--link">
         {/*         <div className="group__item-head">
           <span className="group-name">{props.title}</span>
           <span className="group-num-member">{props.total_member}</span>

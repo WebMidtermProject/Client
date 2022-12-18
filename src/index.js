@@ -9,7 +9,7 @@ import SignUpPage from "./components/sign-up/SignUpPage";
 import Profile from "./components/page/ProfilePage";
 import MyGroupPage from "./components/page/MyGroupPage";
 import JoinedGroupPage from "./components/page/JoinedGroupPage";
-import GroupDetail from "./components/page/GroupDetailPage";
+import GroupDeTailPage from "./components/page/GroupDetailPage";
 import AboutPage from "./components/page/AboutPage";
 
 import "./index.css";
@@ -54,16 +54,15 @@ root.render(
                 <h1>All Groups</h1>
               </ProtectedRoute>
             }
-          >
-            <Route
-              path=":id"
-              element={
-                <ProtectedRoute user={user}>
-                  <GroupDetail />
-                </ProtectedRoute>
-              }
-            ></Route>
-          </Route>
+          ></Route>
+          <Route
+            path="groups/:id"
+            element={
+              <ProtectedRoute user={user}>
+                <GroupDeTailPage />
+              </ProtectedRoute>
+            }
+          ></Route>
           {/*           <Route path="group" element={<GroupDetail />}></Route> */}
           <Route path="about" element={<AboutPage />}></Route>
           {/* others */}

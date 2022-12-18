@@ -16,7 +16,7 @@ const GroupItem = (props) => {
       transition={{ duration: 0.15 }}
       key={props.key}
     >
-      <Link className="group__item--link" to={`/group/${props.id}`}>
+      <Link className="group__item--link" to={`/groups/${props.id}`}>
         <div className="group__item-head">
           <span className="group__name">{props.title}</span>
           <span className="group__total-member">{props.total_member}</span>
