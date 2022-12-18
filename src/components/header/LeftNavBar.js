@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LeftNavBar = (props) => {
   return (
@@ -8,16 +9,16 @@ const LeftNavBar = (props) => {
         {!props.user && (
           <ul className="nav__list">
             <li className="nav__item">
-              <a href="/profile">Profile</a>
+              <Link to="profile">Profile</Link>
             </li>
             <li className="nav__item">
-              <a href="/my-groups">My Groups</a>
+              <Link to="my-groups">My Groups</Link>
             </li>
             <li className="nav__item">
-              <a href="/joined-groups">Joined Groups</a>
+              <Link to="joined-groups">Joined Groups</Link>
             </li>
             <li className="nav__item">
-              <a href="/about">About</a>
+              <Link to="about">About</Link>
             </li>
           </ul>
         )}

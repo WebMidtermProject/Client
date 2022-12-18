@@ -1,34 +1,39 @@
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+
+import {
+  Routes,
+  Route,
+  Outlet,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
-import Content from "./router";
 
-import EditPresentation from "./presentation/EditPresentation.js";
-import Present from "./presentation/Present";
+import Page from "./page/Page";
+/* import EditPresentation from "./presentation/EditPresentation.js";
+import Present from "./presentation/Present"; */
 
 import "../css/App.css";
 
-const App = () => {
+const App = (props) => {
   // eslint-disable-next-line no-unused-vars
-  const [user, setUser] = React.useState();
+  const navigate = useNavigate();
+  const user = localStorage.getItem("user");
 
-  useEffect(() => {
-    const theUser = localStorage.getItem("user");
-
-    if (theUser && !theUser.includes("undefined")) {
-      setUser(JSON.parse(theUser));
-    }
-  }, []);
+  const location = useLocation();
+  const path = location.pathname;
+  if (path.search("sign-in") === -1 && user === null) navigate("/sign-in");
 
   return (
     <div className="app">
-      <audio autoPlay>
-        <source src="./bg-music.mp3" />
-      </audio>
+      <Header></Header>
+      <Page>
+        <Outlet></Outlet>
+      </Page>
+      <Footer></Footer>
       {/*         <Route
           path="*"
           element={
@@ -48,9 +53,6 @@ const App = () => {
           path="/group/:groupId/present/:presentationId"
           element={<Present></Present>}
         ></Route> */}
-      <Header></Header>
-      <Content user={user}></Content>
-      <Footer></Footer>
     </div>
   );
 };

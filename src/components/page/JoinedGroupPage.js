@@ -43,7 +43,7 @@ const JoinedGroupPage = (props) => {
     }
   }, []);
   return (
-    <div className="page page--joined-group">
+    <div className="page--joined-group">
       <div className="page__header">
         <h4 className="page__title">Joined groups</h4>
       </div>

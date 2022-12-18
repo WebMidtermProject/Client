@@ -43,7 +43,7 @@ const MyGroupPage = (props) => {
     }
   }, []);
   return (
-    <div className="page page--my-group">
+    <div className="page--my-group">
       <div className="page__header">
         <h4 className="page__title">My groups</h4>
       </div>

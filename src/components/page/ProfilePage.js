@@ -83,7 +83,7 @@ const Profile = (props) => {
   }, [getProfileUrl]);
 
   return (
-    <div className="page page--profile">
+    <div className="page--profile">
       <div className="page__content">
         <GradientCard h="100%" mw="1200px">
           <div className="profile-content">
