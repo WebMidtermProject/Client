@@ -73,11 +73,11 @@ const Profile = (props) => {
       getData();
       setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, Math.floor(Math.random() * 1000) + 500);
     } catch (error) {
       setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, Math.floor(Math.random() * 1000) + 500);
       console.log(error.message);
     }
   }, [getProfileUrl]);

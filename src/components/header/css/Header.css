@@ -18,10 +18,11 @@ header {
 
   display: flex;
   gap: 48px;
+  align-items: center;
 }
 
-a,
-a:link {
+header a,
+header a:link {
   color: white;
   text-decoration: none;
   transition: all 0.15s ease-in-out;
@@ -31,8 +32,8 @@ a:link {
 }
 
 a:hover,
-a:link:hover {
-  color: #f1f3f5;
+a:hover:link {
+  color: var(--secondary-pink-color);
 }
 
 .header__title,
@@ -68,9 +69,9 @@ a:link:hover {
   width: max-content;
 }
 
-.nav__item:hover {
-  font-size: 17px;
-  font-weight: 600;
+.nav__item.selected a {
+  font-size: 18px;
+  color: var(--secondary-purple-color);
 }
 
 .nav__item .nav__user__img {
@@ -85,21 +86,6 @@ a:link:hover {
   margin-top: 10px;
   text-transform: none;
 }
-
-.nav--right .nav__list {
-  align-items: center;
-}
-
-/* .nav--right .btn-logout {
-  border: none;
-  border-radius: 8px;
-  padding: 5px 10px;
-  background-color: var(--secondary-pink-color);
-  color: white;
-  font-weight: bold;
-  letter-spacing: 0.2px;
-  font-size: 12px;
-} */
 
 .nav--right a {
   display: flex;

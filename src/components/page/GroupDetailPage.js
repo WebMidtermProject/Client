@@ -70,12 +70,12 @@ const GroupDetail = (props) => {
       getData();
       setTimeout(() => {
         setLoading(false);
-      }, 350);
+      }, Math.floor(Math.random() * 1000) + 500);
     } catch (error) {
       setError(error.message);
       setTimeout(() => {
         setLoading(false);
-      }, 350);
+      }, Math.floor(Math.random() * 1000) + 500);
     }
   }, [groupDetailLink, id, props.invite]);
 

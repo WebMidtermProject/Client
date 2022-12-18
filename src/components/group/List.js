@@ -12,7 +12,7 @@ import "./css/List.css";
 const List = (props) => {
   return (
     <GradientCard h={props.h} w={props.w} mh={props.mh} mw={props.mw}>
-      <ul className="group__list">
+      <ul className="list">
         {/*         {props.type !== "member" &&
           typeof props.list === "object" &&
           props.list.map((item, key) => {

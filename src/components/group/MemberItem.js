@@ -9,7 +9,7 @@ const MemberItem = (props) => {
     <motion.li
       className="group__item"
       whileHover={{
-        translateX: "10px",
+        translateX: "20px",
         originX: 0,
         backgroundColor: "rgba(151, 151, 151, 0.123)",
       }}
