@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-import Chart from "./Chart";
+import Chart from "../presentation/Chart";
 import "./css/Slide.css";
 
 const Slide = (props) => {

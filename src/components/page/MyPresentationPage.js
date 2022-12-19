@@ -36,6 +36,13 @@ const MyPresentationPage = (props) => {
     pagination.push(i + 1);
   }
 
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, Math.floor(Math.random() * 1000) + 500);
+  }, []);
+
   return (
     <div className="page--my-presentation">
       <div className="page__header">

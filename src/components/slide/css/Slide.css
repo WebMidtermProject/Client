@@ -7,14 +7,14 @@
   cursor: pointer;
 }
 
-.slide.center {
+/* .slide.center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
-.last-slide {
+/* .last-slide {
   color: black;
   background-color: var(--secondary-light-gray-color);
   transition-delay: 0.15s;
@@ -57,3 +57,4 @@
 .others-view.mini input[type="radio"] {
   transform: scale(0.3);
 }
+ */

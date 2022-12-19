@@ -11,6 +11,8 @@ import MyGroupPage from "./components/page/MyGroupPage";
 import JoinedGroupPage from "./components/page/JoinedGroupPage";
 import GroupDeTailPage from "./components/page/GroupDetailPage";
 import MyPresentationPage from "./components/page/MyPresentationPage";
+import EditorPage from "./components/page/EditorPage";
+import MultipleChoiceSlide from "./components/slide/MultipleChoiceSlide";
 import AboutPage from "./components/page/AboutPage";
 
 import "./index.css";
@@ -68,14 +70,27 @@ root.render(
             path="my-presentations"
             element={
               <ProtectedRoute user={user}>
-                <MyPresentationPage></MyPresentationPage>
+                <>
+                  {/*                   <MultipleChoiceSlide size="lg"></MultipleChoiceSlide>
+                  <MultipleChoiceSlide size="sm"></MultipleChoiceSlide> */}
+                  <MyPresentationPage></MyPresentationPage>
+                </>
               </ProtectedRoute>
             }
           ></Route>
+
           <Route path="about" element={<AboutPage />}></Route>
           {/* others */}
           <Route path="*" element={<h1>404 Not found</h1>}></Route>
         </Route>
+        <Route
+          path="my-presentations/:presentationId/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditorPage></EditorPage>
+            </ProtectedRoute>
+          }
+        ></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Slide from "./Slide";
+import Slide from "../slide/Slide";
 
 import "./css/DisplaySlide.css";
 

@@ -1,0 +1,34 @@
+.radio-answer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+  padding: 0px 20px;
+}
+
+.radio__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.radio__input {
+  display: none;
+}
+
+.radio__label {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #eee;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 1rem;
+  box-shadow: 0 0 0 4px #eee;
+  transition: all 0.25s linear;
+}
+
+.radio__input:checked + .radio__label {
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px #fd656b;
+  background-color: #fd656b;
+}

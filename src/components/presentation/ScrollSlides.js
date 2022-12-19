@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 
-import Slide from "./Slide";
+import Slide from "../slide/Slide";
 
 import "./css/ScrollSlides.css";
 
