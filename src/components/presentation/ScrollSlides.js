@@ -17,28 +17,22 @@ const ScrollSlides = (props) => {
   };
 
   return (
-    <div className="scroll-slides">
-      <ul className="scroll-slides__list">
-        {slides.map((key) => {
-          let cls = "scroll-slides__item";
-          if (key === currentChoice) cls += " selected";
-          return (
-            <li
-              className={cls}
-              key={key}
-              onClick={() => {
-                handleChooseSlide(key);
-              }}
-            >
-              <MultipleChoiceSlide type="sm"></MultipleChoiceSlide>
-            </li>
-          );
-        })}
-        <li className="scroll-slides__item" onClick={handleCreateSlide}>
-          <MultipleChoiceSlide
-            type="sm"
-            className="last-slide"
-          ></MultipleChoiceSlide>
+    <div className="scroll-slide">
+      <ul
+        className="scroll-slide__list"
+        style={{ display: "flex", gap: "30px" }}
+      >
+        <li className="scroll-slide__item">
+          <MultipleChoiceSlide type="sm"></MultipleChoiceSlide>
+        </li>
+        <li className="scroll-slide__item">
+          <MultipleChoiceSlide type="sm"></MultipleChoiceSlide>
+        </li>
+        <li className="scroll-slide__item">
+          <MultipleChoiceSlide type="sm"></MultipleChoiceSlide>
+        </li>
+        <li className="scroll-slide__item">
+          <MultipleChoiceSlide type="sm"></MultipleChoiceSlide>
         </li>
       </ul>
     </div>

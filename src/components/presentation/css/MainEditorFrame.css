@@ -1,0 +1,5 @@
+.main-editor-frame {
+  flex: 4;
+  background-color: var(--secondary-light-gray-color);
+  padding: 15px 30px;
+}

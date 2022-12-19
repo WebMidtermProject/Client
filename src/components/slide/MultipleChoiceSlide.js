@@ -3,28 +3,23 @@ import { motion } from "framer-motion";
 
 import RadioAnswer from "./RadioAnswer";
 
+import "./css/Slide.css";
 import "./css/MultipleChoiceSlide.css";
 
 const MultipleChoiceSlide = (props) => {
   const answers = [];
   let scale = 1;
-  let width = "100%";
 
   if (props.type === "md") {
-    scale = 0.6;
-    width = "70%";
+    scale = 1;
   } else if (props.type === "sm") {
     scale = 0.1;
-    width = "70%";
   }
 
   const cls = props.type;
 
   return (
-    <motion.div
-      className={"slide " + cls}
-      initial={{ scale: scale, width: width }}
-    >
+    <motion.div className={"slide " + cls} initial={{ scale: scale }}>
       <div className="slide-header">
         <h3 className="slide__question">Question ?</h3>
       </div>

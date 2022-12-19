@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 
 import EditorHeader from "../components/header/EditorHeader";
 import ScrollSlides from "../components/presentation/ScrollSlides";
-import DisplaySlide from "../components/presentation/DisplaySlide";
+import MainEditorFrame from "../components/presentation/MainEditorFrame";
 import SlideCustomization from "../components/presentation/SlideCustomization";
 import Loading from "../components/loading/Loading";
 
 import "./css/EditorPage.css";
 
-const EditPresentation = (props) => {
+const EditorPage = (props) => {
   const { presentationId } = useParams();
   const [currentSlide, setCurrentSlide] = useState();
 
@@ -29,7 +29,7 @@ const EditPresentation = (props) => {
   }, []);
 
   return (
-    <>
+    <div className="page page--editor-page">
       <EditorHeader presentationId={presentationId}></EditorHeader>
 
       <div className="edit-presentation">
@@ -37,12 +37,12 @@ const EditPresentation = (props) => {
           <SlideCustomization slide={currentSlide}></SlideCustomization>
         </div>
         <div className="edit-presentation--right">
-          <DisplaySlide slide={currentSlide}></DisplaySlide>
-          {/*           <ScrollSlides setSlide={setDisplaySlide}></ScrollSlides> */}
+          <MainEditorFrame slide={currentSlide}></MainEditorFrame>
+          {/*           <ScrollSlides></ScrollSlides> */}
         </div>
       </div>
       {loading && <Loading></Loading>}
-    </>
+    </div>
   );
 };
-export default EditPresentation;
+export default EditorPage;
