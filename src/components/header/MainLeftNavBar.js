@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 import NavItem from "./NavItem";
 
-const LeftNavBar = (props) => {
+import "./css/LeftNavBar.css";
+
+const MainLeftNavBar = (props) => {
   const [selected, setSelected] = useState(undefined);
   const handleItemClick = (e, id) => {
     console.log(e);
@@ -63,4 +65,4 @@ const LeftNavBar = (props) => {
   );
 };
 
-export default LeftNavBar;
+export default MainLeftNavBar;

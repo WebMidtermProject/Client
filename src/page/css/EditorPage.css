@@ -1,18 +1,19 @@
 .edit-presentation {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
 }
 
 .edit-presentation--left {
   height: 100%;
-  flex: 1;
+  min-width: 400px;
+  flex: 0;
 }
 
 .edit-presentation--right {
   height: 100%;
-  flex: 2.8;
+  flex: 4;
   max-width: 1450px;
   display: flex;
   flex-direction: column;

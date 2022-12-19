@@ -4,16 +4,17 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import App from "./components/App";
 import ProtectedRoute from "./components/ProtectedRoute";
-import SignInPage from "./components/login/SignInPage";
-import SignUpPage from "./components/sign-up/SignUpPage";
-import Profile from "./components/page/ProfilePage";
-import MyGroupPage from "./components/page/MyGroupPage";
-import JoinedGroupPage from "./components/page/JoinedGroupPage";
-import GroupDeTailPage from "./components/page/GroupDetailPage";
-import MyPresentationPage from "./components/page/MyPresentationPage";
-import EditorPage from "./components/page/EditorPage";
+import SignInPage from "./page/SignInPage";
+import SignUpPage from "./page/SignUpPage";
+import Profile from "./page/ProfilePage";
+import MyGroupPage from "./page/MyGroupPage";
+import JoinedGroupPage from "./page/JoinedGroupPage";
+import GroupDeTailPage from "./page/GroupDetailPage";
+import MyPresentationPage from "./page/MyPresentationPage";
+import EditorPage from "./page/EditorPage";
+import PresentPage from "./page/PresentPage";
 import MultipleChoiceSlide from "./components/slide/MultipleChoiceSlide";
-import AboutPage from "./components/page/AboutPage";
+import AboutPage from "./page/AboutPage";
 
 import "./index.css";
 
@@ -80,6 +81,7 @@ root.render(
           ></Route>
 
           <Route path="about" element={<AboutPage />}></Route>
+
           {/* others */}
           <Route path="*" element={<h1>404 Not found</h1>}></Route>
         </Route>
@@ -88,6 +90,34 @@ root.render(
           element={
             <ProtectedRoute user={user}>
               <EditorPage></EditorPage>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="my-presentations/:presentationId/present"
+          element={
+            <ProtectedRoute user={user}>
+              <>
+                {/*                   <MultipleChoiceSlide size="lg"></MultipleChoiceSlide>
+                  <MultipleChoiceSlide size="sm"></MultipleChoiceSlide> */}
+                <PresentPage></PresentPage>
+              </>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="present-small"
+          element={
+            <ProtectedRoute user={user}>
+              <MultipleChoiceSlide type="sm"></MultipleChoiceSlide>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="present-medium"
+          element={
+            <ProtectedRoute user={user}>
+              <MultipleChoiceSlide type="md"></MultipleChoiceSlide>
             </ProtectedRoute>
           }
         ></Route>

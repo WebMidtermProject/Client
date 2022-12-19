@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 
-import List from "../group/List";
-import PresentationList from "../presentation/PresentationList";
-import MonoButton from "../button/MonoButton";
-import Loading from "../loading/Loading";
-import useQuery from "../../hooks/useQuery";
+import List from "../components/list/List";
+import PresentationList from "../components/presentation/PresentationList";
+import MonoButton from "../components/button/MonoButton";
+import Loading from "../components/loading/Loading";
+import useQuery from "../components/../hooks/useQuery";
 
 import "./css/GroupDetailPage.css";
 

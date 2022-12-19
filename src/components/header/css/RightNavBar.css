@@ -2,8 +2,12 @@
   width: max-content;
   height: max-content;
   padding: 4px 8px;
-  background-color: var(--secondary-pink-color);
+  background-color: red;
 
   font-size: 12px;
-  box-shadow: 0.5px 0.5px 15px var(--secondary-pink-color);
+  box-shadow: 0.5px 0.5px 25px red;
+}
+
+.btn.btn-logout:active {
+  background-color: rgba(255, 0, 0, 0.699);
 }

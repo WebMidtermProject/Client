@@ -1,11 +1,11 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import TaskBar from "../presentation/TaskBar";
-import ScrollSlides from "../presentation/ScrollSlides";
-import DisplaySlide from "../presentation/DisplaySlide";
-import SlideCustomization from "../presentation/SlideCustomization";
-import Loading from "../loading/Loading";
+import EditorHeader from "../components/header/EditorHeader";
+import ScrollSlides from "../components/presentation/ScrollSlides";
+import DisplaySlide from "../components/presentation/DisplaySlide";
+import SlideCustomization from "../components/presentation/SlideCustomization";
+import Loading from "../components/loading/Loading";
 
 import "./css/EditorPage.css";
 
@@ -30,16 +30,15 @@ const EditPresentation = (props) => {
 
   return (
     <>
-      <TaskBar
-        /* groupId={groupId} */ presentationId={presentationId}
-      ></TaskBar>
+      <EditorHeader presentationId={presentationId}></EditorHeader>
+
       <div className="edit-presentation">
         <div className="edit-presentation--left">
           <SlideCustomization slide={currentSlide}></SlideCustomization>
         </div>
         <div className="edit-presentation--right">
           <DisplaySlide slide={currentSlide}></DisplaySlide>
-          <ScrollSlides setSlide={setDisplaySlide}></ScrollSlides>
+          {/*           <ScrollSlides setSlide={setDisplaySlide}></ScrollSlides> */}
         </div>
       </div>
       {loading && <Loading></Loading>}

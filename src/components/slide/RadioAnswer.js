@@ -8,17 +8,11 @@ const RadioAnswer = (props) => {
     <div className="radio-answer">
       {answers.map((answer, key) => {
         return (
-          <div className="radio__item">
-            <input
-              type="radio"
-              id={key}
-              className="radio__input"
-              name="gender"
-            />
-            <label for={key} className="radio__label">
-              {answer}
-            </label>
-          </div>
+          <label className="rad-label" key={key}>
+            <input type="radio" className="rad-input" name="rad"></input>
+            <div className="rad-design"></div>
+            <div className="rad-text">Air</div>
+          </label>
         );
       })}
     </div>

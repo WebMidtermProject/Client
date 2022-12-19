@@ -4,7 +4,7 @@ import "./css/GridWrapLayout.css";
 
 const gridWrapLayout = (props) => {
   const handleChoosePresent = (key) => {
-    window.location.replace(`/my-presentations/${key}/edit`);
+    window.location.replace(`my-presentations/${key}/edit`);
   };
 
   return (

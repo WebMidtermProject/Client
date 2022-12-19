@@ -1,4 +1,17 @@
 .slide {
-  width: 800px;
-  height: 450px;
+  /*   width: 100%;
+  height: 100%; */
+  color: #212529;
+  background-color: lightblue;
 }
+
+.slide__question {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 96px;
+  letter-spacing: 2px;
+}
+
+/* .slide__answer .radio__label {
+  font-size: 48px;
+} */

@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 
-import GradientCard from "../container/GradientCard";
-import Loading from "../loading/Loading";
+import GradientCard from "../components/container/GradientCard";
+import Loading from "../components/loading/Loading";
 
 import "./css/Page.css";
 import "./css/AboutPage.css";

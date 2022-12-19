@@ -2,13 +2,13 @@ import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import List from "../group/List";
-import BasicModal from "../modal/BasicModal";
-import NewGroupForm from "../form/NewGroupForm";
-import GradientButton from "../button/GradientButton";
-import GradientCard from "../container/GradientCard";
-import MonoButton from "../button/MonoButton";
-import Loading from "../loading/Loading";
+import List from "../components/list/List";
+import BasicModal from "../components/modal/BasicModal";
+import NewGroupForm from "../components/form/NewGroupForm";
+import GradientButton from "../components/button/GradientButton";
+import GradientCard from "../components/container/GradientCard";
+import MonoButton from "../components/button/MonoButton";
+import Loading from "../components/loading/Loading";
 
 import "./css/ProfilePage.css";
 

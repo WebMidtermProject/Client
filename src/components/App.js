@@ -3,10 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Outlet } from "react-router-dom";
 
-import Header from "./header/Header";
+import MainHeader from "./header/MainHeader";
 import Footer from "./footer/Footer";
 
-import Page from "./page/Page";
+import Page from "../page/Page";
 /* import EditPresentation from "./presentation/EditPresentation.js";
 import Present from "./presentation/Present"; */
 
@@ -18,7 +18,7 @@ const App = (props) => {
 
   return (
     <div className="app">
-      <Header user={user}></Header>
+      <MainHeader user={user}></MainHeader>
       <Page>
         <Outlet></Outlet>
       </Page>

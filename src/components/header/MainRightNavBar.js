@@ -5,7 +5,7 @@ import MonoButton from "../button/MonoButton";
 
 import "./css/RightNavBar.css";
 
-const RightNavBar = (props) => {
+const MainRightNavBar = (props) => {
   const handleLogoutClick = (event) => {
     event.preventDefault();
     localStorage.removeItem("user");
@@ -40,15 +40,13 @@ const RightNavBar = (props) => {
               )}
             </a>
           </li>
-          <MonoButton
-            className="btn-logout"
-            name="Logout"
-            onClick={handleLogoutClick}
-          ></MonoButton>
+          <MonoButton className="btn-logout" onClick={handleLogoutClick}>
+            <span>Logout</span>
+          </MonoButton>
         </ul>
       )}
     </nav>
   );
 };
 
-export default RightNavBar;
+export default MainRightNavBar;

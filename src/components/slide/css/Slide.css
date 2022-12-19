@@ -1,10 +1,11 @@
 .slide {
   background-color: white;
   color: black;
-  padding: 0.3em;
+  padding: 60px;
   position: relative;
-  border-radius: 0.3em;
-  cursor: pointer;
+  /*   background-color: gray; */
+  /*  border-radius: 8px; */
+  /*   cursor: pointer; */
 }
 
 /* .slide.center {

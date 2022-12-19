@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 
-import Slide from "../slide/Slide";
+import MultipleChoiceSlide from "../slide/MultipleChoiceSlide";
 
 import "./css/ScrollSlides.css";
 
@@ -30,12 +30,15 @@ const ScrollSlides = (props) => {
                 handleChooseSlide(key);
               }}
             >
-              <Slide size="mini"></Slide>
+              <MultipleChoiceSlide type="sm"></MultipleChoiceSlide>
             </li>
           );
         })}
         <li className="scroll-slides__item" onClick={handleCreateSlide}>
-          <Slide size="mini" className="last-slide"></Slide>
+          <MultipleChoiceSlide
+            type="sm"
+            className="last-slide"
+          ></MultipleChoiceSlide>
         </li>
       </ul>
     </div>

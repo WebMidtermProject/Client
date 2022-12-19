@@ -1,0 +1,21 @@
+.custom-input-2 label {
+  display: inline-block;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.custom-input-2 input {
+  outline: none;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-bottom: 2px solid var(--secondary-purple-color);
+  background-color: transparent;
+  color: white;
+}

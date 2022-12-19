@@ -1,12 +1,12 @@
 import { React, useState, useEffect } from "react";
 
-import GridWrapLayout from "../layout/GridWrapLayout";
-import Pagination from "../pagination/Pagination";
-import Loading from "../loading/Loading";
+import GridWrapLayout from "../components/layout/GridWrapLayout";
+import Pagination from "../components/pagination/Pagination";
+import Loading from "../components/loading/Loading";
 
 import "./css/MyPresentationPage.css";
 
-import useQuery from "../../hooks/useQuery";
+import useQuery from "../components/../hooks/useQuery";
 
 const MyPresentationPage = (props) => {
   const presentations = [

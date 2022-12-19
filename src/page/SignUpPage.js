@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import GoogleSignInButton from "../login/GoogleSignInButton";
-import GoogleSignUpButton from "../login/GoogleSignUpButton";
+import GoogleSignInButton from "../components/login/GoogleSignInButton";
+import GoogleSignUpButton from "../components/login/GoogleSignUpButton";
 
 const SignUpPage = () => {
   const initState = {

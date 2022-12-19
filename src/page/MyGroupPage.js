@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 
-import Loading from "../loading/Loading";
-import List from "../group/List";
+import Loading from "../components/loading/Loading";
+import List from "../components/list/List";
 
 import "./css/Page.css";
 import "./css/MyGroupPage.css";
@@ -34,11 +34,11 @@ const MyGroupPage = (props) => {
       getData();
       setTimeout(() => {
         setLoading(false);
-      }, Math.floor(Math.random() * 1000)+500);
+      }, Math.floor(Math.random() * 1000) + 500);
     } catch (error) {
       setTimeout(() => {
         setLoading(false);
-      }, Math.floor(Math.random() * 1000)+500);
+      }, Math.floor(Math.random() * 1000) + 500);
       console.log(error.message);
     }
   }, []);

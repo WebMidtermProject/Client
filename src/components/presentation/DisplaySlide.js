@@ -1,13 +1,13 @@
 import React from "react";
 
-import Slide from "../slide/Slide";
+import MultipleChoiceSlide from "../slide/MultipleChoiceSlide";
 
 import "./css/DisplaySlide.css";
 
 const DisplaySlide = (props) => {
   return (
     <div className="display-slide">
-      <Slide size="large" ownerMode={false}></Slide>
+      <MultipleChoiceSlide size="large" ownerMode={false}></MultipleChoiceSlide>
     </div>
   );
 };

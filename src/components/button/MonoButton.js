@@ -19,7 +19,7 @@ const MonoButton = (props) => {
         props.className ? "btn btn--mono " + props.className : "btn btn--mono"
       }
     >
-      {props.name}
+      {props.children}
     </motion.button>
   );
 };

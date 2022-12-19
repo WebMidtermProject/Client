@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 
-import List from "../group/List";
-import Loading from "../loading/Loading";
+import List from "../components/list/List";
+import Loading from "../components/loading/Loading";
 
 import "./css/Page.css";
 import "./css/JoinedGroupPage.css";
