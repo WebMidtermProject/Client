@@ -7,6 +7,24 @@ header {
   gap: 20px;
 }
 
+.header__navbar {
+  overflow-y: auto;
+}
+
+.header__navbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.header__navbar::-webkit-scrollbar-track {
+  background-color: #fafafa;
+  border-radius: 50px;
+}
+
+.header__navbar::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-dark-blue-color);
+  border-radius: 50px;
+}
+
 .nav__item {
   display: inline-block;
 }

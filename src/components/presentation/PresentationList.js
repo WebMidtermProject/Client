@@ -52,16 +52,17 @@ const PresentationList = (props) => {
           onClick={handleCreatePresentation}
         />
       </div>
-      <Row>
+      <Row style={{ display: "flex", flexWrap: "wrap" }}>
         {presentations.slice(start, end).map((name, id) => {
           return (
-            <Col
+            <div
+              style={{ width: "33.33%" }}
               className="presentation__item"
               key={id}
               onClick={() => handlePresentationEditClick(id)}
             >
               <Presentation name={name}></Presentation>
-            </Col>
+            </div>
           );
         })}
       </Row>

@@ -7,7 +7,8 @@ import NavItem from "./NavItem";
 
 const LeftNavBar = (props) => {
   const [selected, setSelected] = useState(undefined);
-  const handleItemClick = (id) => {
+  const handleItemClick = (e, id) => {
+    console.log(e);
     setSelected(id);
   };
   return (
@@ -24,17 +25,9 @@ const LeftNavBar = (props) => {
               <Link to="groups">All Groups</Link>
             </NavItem>
             <NavItem
-              className={selected === 2 ? "selected" : null}
-              onClick={() => {
-                handleItemClick(2);
-              }}
-            >
-              <Link to="profile">Profile</Link>
-            </NavItem>
-            <NavItem
               className={selected === 3 ? "selected" : null}
               onClick={() => {
-                handleItemClick(3);
+                handleItemClick(2);
               }}
             >
               <Link to="my-groups">My Groups</Link>
@@ -42,7 +35,7 @@ const LeftNavBar = (props) => {
             <NavItem
               className={selected === 4 ? "selected" : null}
               onClick={() => {
-                handleItemClick(4);
+                handleItemClick(3);
               }}
             >
               <Link to="joined-groups">Joined Groups</Link>
@@ -51,6 +44,14 @@ const LeftNavBar = (props) => {
         )}
         <NavItem
           className={selected === 5 ? "selected" : null}
+          onClick={() => {
+            handleItemClick(4);
+          }}
+        >
+          <Link to="my-presentations">My Presentations</Link>
+        </NavItem>
+        <NavItem
+          className={selected === 4 ? "selected" : null}
           onClick={() => {
             handleItemClick(5);
           }}

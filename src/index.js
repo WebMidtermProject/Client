@@ -10,10 +10,10 @@ import Profile from "./components/page/ProfilePage";
 import MyGroupPage from "./components/page/MyGroupPage";
 import JoinedGroupPage from "./components/page/JoinedGroupPage";
 import GroupDeTailPage from "./components/page/GroupDetailPage";
+import MyPresentationPage from "./components/page/MyPresentationPage";
 import AboutPage from "./components/page/AboutPage";
 
 import "./index.css";
-import PresentationList from "./components/presentation/PresentationList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const user = localStorage.getItem("user");
@@ -23,7 +23,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>
+          <Route path="sign-in" element={<SignInPage></SignInPage>}></Route>
           <Route
             path="profile"
             element={
@@ -63,13 +63,15 @@ root.render(
                 <GroupDeTailPage />
               </ProtectedRoute>
             }
-          >
-            {/*             <Route path="presentations/:presentId">
+          ></Route>
+          <Route
+            path="my-presentations"
+            element={
               <ProtectedRoute user={user}>
-                <PresentationList />
+                <MyPresentationPage></MyPresentationPage>
               </ProtectedRoute>
-            </Route> */}
-          </Route>
+            }
+          ></Route>
           <Route path="about" element={<AboutPage />}></Route>
           {/* others */}
           <Route path="*" element={<h1>404 Not found</h1>}></Route>
