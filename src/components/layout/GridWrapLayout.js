@@ -4,7 +4,7 @@ import "./css/GridWrapLayout.css";
 
 const gridWrapLayout = (props) => {
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       {props.data.map((item, key) => {
         return (
           <div className="presentation__item" key={key}>
