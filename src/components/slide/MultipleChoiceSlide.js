@@ -8,23 +8,31 @@ import "./css/MultipleChoiceSlide.css";
 
 const MultipleChoiceSlide = (props) => {
   const answers = [];
-  let scale = 1;
+  let fontSize = 96;
 
   if (props.type === "md") {
-    scale = 1;
+    fontSize = 96;
   } else if (props.type === "sm") {
-    scale = 0.1;
+    fontSize = 12;
   }
 
   const cls = props.type;
 
   return (
-    <motion.div className={"slide " + cls} initial={{ scale: scale }}>
+    <motion.div
+      className={"slide " + cls}
+      style={{ fontSize: fontSize + "px", backgroundColor: props.bgColor }}
+    >
       <div className="slide-header">
-        <h3 className="slide__question">Question ?</h3>
+        <h3 className="slide__question" style={{ color: props.questionColor }}>
+          Question ?
+        </h3>
       </div>
-      <div className="slide-answer">
-        <RadioAnswer answers={answers} fontSize={36}></RadioAnswer>
+      <div
+        className="slide-answer"
+        style={{ fontSize: Math.floor(fontSize * 0.4) + "px" }}
+      >
+        <RadioAnswer answers={answers}></RadioAnswer>
       </div>
     </motion.div>
   );

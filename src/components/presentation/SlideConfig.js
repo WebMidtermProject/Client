@@ -4,31 +4,52 @@ import CustomInput from "../input/CustomInput";
 import CustomInput2 from "../input/CustomInput2";
 import MonoButton from "../button/MonoButton";
 
-import "./css/SlideCustomization.css";
+import "./css/SlideConfig.css";
 
-const SlideCustomization = () => {
+const SlideConfig = (props) => {
   const limit = 8;
   const [options, setOptions] = useState([]);
+  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+  const [questionColor, setQuestionColor] = useState("#212529");
 
   const handleAddOptions = () => {
     if (options.length < limit) setOptions([...options, options.length + 1]);
+  };
+
+  const handleChangeBackgroundColor = (e) => {
+    setBackgroundColor(e.target.value);
+    props.changeBgColor(e.target.value);
+  };
+
+  const handleChangeQuestionColor = (e) => {
+    setQuestionColor(e.target.value);
+    props.changeQuestionColor(e.target.value);
   };
 
   return (
     <div className="slide-config">
       <section>
         <strong className="slide-config__title background">Background:</strong>
-        <input type="color" name="head" value="#ffffff"></input>
+        <input
+          type="color"
+          name="head"
+          value={backgroundColor}
+          onChange={handleChangeBackgroundColor}
+        ></input>
       </section>
 
       <section>
         <strong className="slide-config__title question">Question:</strong>
-        {/*         <input
-          className="slide-config__input"
-          type="text"
-          placeholder="Please type here..."
-        /> */}
-        <CustomInput2 place="Enter your question..."></CustomInput2>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <CustomInput2 place="Enter your question..."></CustomInput2>
+          <input
+            style={{ alignSelf: "flex-end" }}
+            type="color"
+            name="head"
+            value={questionColor}
+            onChange={handleChangeQuestionColor}
+          ></input>
+        </div>
       </section>
       <section>
         <strong className="slide-config__title options">Options:</strong>
@@ -63,4 +84,4 @@ const SlideCustomization = () => {
   );
 };
 
-export default SlideCustomization;
+export default SlideConfig;
