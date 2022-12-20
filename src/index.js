@@ -17,6 +17,7 @@ import MultipleChoiceSlide from "./components/slide/MultipleChoiceSlide";
 import AboutPage from "./page/AboutPage";
 
 import "./index.css";
+import TestPage from "./page/TestPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const user = localStorage.getItem("user");
@@ -121,6 +122,7 @@ root.render(
             </ProtectedRoute>
           }
         ></Route>
+        <Route path="test" element={TestPage}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

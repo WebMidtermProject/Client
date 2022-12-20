@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useEffect } from "react";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 import MultipleChoiceSlide from "../components/slide/MultipleChoiceSlide";
-import "./css/PresentPage.css";
 
-const PresentPage = (props) => {
+function PresentPage() {
+  const handle = useFullScreenHandle();
   return (
-    <div className="page--present">
-      <MultipleChoiceSlide type="full"></MultipleChoiceSlide>
+    <div>
+      <button onClick={handle.enter}></button>
+
+      <FullScreen handle={handle}>
+        <MultipleChoiceSlide></MultipleChoiceSlide>
+      </FullScreen>
     </div>
   );
-};
+}
 
 export default PresentPage;

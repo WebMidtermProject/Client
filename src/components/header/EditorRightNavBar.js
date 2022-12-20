@@ -1,4 +1,5 @@
 import React from "react";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 import MonoButton from "../button/MonoButton";
 
@@ -7,6 +8,8 @@ import "./css/EditorRightNavBar.css";
 const TaskBar = (props) => {
   const presentationId = props.presentationId;
   const groupId = props.groupId;
+
+  const fullScreenHandle = useFullScreenHandle();
 
   const handlePresentClick = () => {
     window.location.replace(`./present`);
